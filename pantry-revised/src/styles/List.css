@@ -15,7 +15,9 @@
     left: 2rem;
 }
 
-.AddItem {
-    background-color: blue;
+.AddItemButton {
+    position: absolute;
     cursor: pointer;
+    top: 5rem;
+    right: 2rem;
 }
