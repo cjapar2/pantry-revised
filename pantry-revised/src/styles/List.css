@@ -1,0 +1,21 @@
+.ListContainer {
+    position: relative;
+    background-color: #E4EBB1;
+    padding: 25rem 30rem;
+    margin-top: 6rem;
+    border-radius: 0px 15px 15px 15px;
+    font-size: 1rem;
+}
+
+.ListTitle {
+    font-family: 'Times New Roman', serif;
+    position: absolute;
+    font-size: 2em;
+    top: 0rem;
+    left: 2rem;
+}
+
+.AddItem {
+    background-color: blue;
+    cursor: pointer;
+}
