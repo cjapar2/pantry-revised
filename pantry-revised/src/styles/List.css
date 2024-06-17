@@ -1,7 +1,7 @@
 .ListContainer {
     position: relative;
     background-color: #E4EBB1;
-    padding: 25rem 30rem;
+    padding: 15rem 25rem;
     margin-top: 6rem;
     border-radius: 0px 15px 15px 15px;
     font-size: 1rem;
@@ -15,7 +15,7 @@
     left: 2rem;
 }
 
-.AddItemButton {
+.OpenAddFormBtn {
     position: absolute;
     cursor: pointer;
     top: 5rem;
