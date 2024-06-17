@@ -1,6 +1,12 @@
 .itemContainer {
-    background-color: blue;
-    padding: 1rem;
-    margin: 1rem;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    background: #8758ff;
+    color: #fff;
+    padding: 0.75rem 5rem;
+    border-radius: 15px;
+    margin-bottom: 1rem;
 
 }

@@ -7,7 +7,7 @@ import { Button, Stack } from '@mui/material'
 export default function AddItemForm({addItem}) {
   const [itemName, setItemName] = useState("");
   const [amount, setAmount] = useState(0);
-  const [comment, setComment] = useState(0);
+  const [comment, setComment] = useState("");
 
   const handleItemSubmit = (e) => {
     e.preventDefault();
