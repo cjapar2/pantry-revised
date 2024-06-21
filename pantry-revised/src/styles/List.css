@@ -1,14 +1,26 @@
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('../../public/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+}
+
 .ListContainer {
     position: relative;
     background-color: #E4EBB1;
-    padding: 15rem 25rem;
+    padding: 15rem 25rem 10rem 25rem;
+    height: 0rem;
     margin-top: 6rem;
     border-radius: 0px 15px 15px 15px;
     font-size: 1rem;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.ListContainer::-webkit-scrollbar {
+    display: none;
 }
 
 .ListTitle {
-    font-family: 'Times New Roman', serif;
+    font-family: "Playfair Display";
     position: absolute;
     font-size: 2em;
     top: 0rem;
