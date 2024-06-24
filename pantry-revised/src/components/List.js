@@ -25,6 +25,14 @@ export function List() {
         <Modal open={showAddForm} onClose={() => setShowAddForm(false)}>
           <AddItemForm addItem={addItem}/>
         </Modal>
+        
+        {/* List Labels */}
+        <div className='listingLabels'>
+          <div>Name</div>
+          <div>Amount</div>
+          <div>Comments</div>
+        </div>
+        
         {/* Map out the list of itemlistings into individual components */}
         {items.map((itemObj) =>
           <ItemListing 

@@ -9,6 +9,7 @@
     padding: 15rem 25rem 10rem 25rem;
     height: 0rem;
     margin-top: 6rem;
+    bottom: 1rem;
     border-radius: 0px 15px 15px 15px;
     font-size: 1rem;
     overflow-y: auto;
@@ -30,6 +31,19 @@
 .OpenAddFormBtn {
     position: absolute;
     cursor: pointer;
-    top: 5rem;
+    top: 2rem;
     right: 2rem;
+}
+
+.listingLabels {
+    position: absolute;
+    display: flex;
+    top: 6rem;
+    left: 1.5rem;
+    border-bottom: 1px solid;
+    padding-bottom: 0.5rem;
+}
+
+.listingLabels > div {
+    margin-right: 12rem;
 }
