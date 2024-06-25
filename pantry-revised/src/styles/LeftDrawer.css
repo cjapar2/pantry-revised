@@ -1,4 +1,7 @@
 .DrawerContainer {
+    position: absolute;
     background-color: #2C664A;
-    width: 100;
+    bottom: 10rem;
+    left: 10rem;
+    padding: 10rem;
 }
