@@ -6,7 +6,7 @@
 .ListContainer {
     position: relative;
     background-color: #E4EBB1;
-    padding: 15rem 25rem 10rem 25rem;
+    padding: 30vh 25rem 50vh 25rem;
     height: 0rem;
     margin-top: 6rem;
     bottom: 1rem;
@@ -46,4 +46,10 @@
 
 .listingLabels > div {
     margin-right: 12rem;
+}
+
+.listingsContainer {
+    position: absolute;
+    left: 25rem;
+    top: 10rem;
 }

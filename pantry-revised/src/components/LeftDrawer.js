@@ -1,7 +1,11 @@
 import React from 'react'
+import '../styles/LeftDrawer.css'
+import { Paper } from '@mui/material'
 
-export default function LeftDrawer() {
+export function LeftDrawer() {
   return (
-    <div>LeftDrawer</div>
+    <Paper className='DrawerContainer'>
+      test
+    </Paper>  
   )
 }

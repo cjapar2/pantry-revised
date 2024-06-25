@@ -33,14 +33,16 @@ export function List() {
           <div>Comments</div>
         </div>
         
-        {/* Map out the list of itemlistings into individual components */}
-        {items.map((itemObj) =>
-          <ItemListing 
-            itemName={itemObj.itemName}
-            amount={itemObj.amount}
-            comment={itemObj.comment}
-          />
-        )}
+        <div className='listingsContainer'>
+          {/* Map out the list of itemlistings into individual components */}
+          {items.map((itemObj) =>
+            <ItemListing 
+              itemName={itemObj.itemName}
+              amount={itemObj.amount}
+              comment={itemObj.comment}
+            />
+          )}
+        </div>
     </div>
   )
 }
