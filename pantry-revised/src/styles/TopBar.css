@@ -3,7 +3,8 @@
 }
 
 .ToolBar {
-    background-color: #2C664A;
+    background-color: transparent;
+    opacity: 1;
     font-family: sans-serif;
     font-weight: 700;
 }

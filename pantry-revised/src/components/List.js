@@ -5,6 +5,7 @@ import { faSquarePlus } from '@fortawesome/free-regular-svg-icons';
 import AddItemForm from './AddItemForm';
 import Modal from '@mui/material/Modal';
 import ItemListing from './ItemListing';
+// import { LeftDrawer } from './LeftDrawer';
 
 export function List() {
 
@@ -17,7 +18,9 @@ export function List() {
   };
 
   return (
-    <div className="ListContainer">
+    <div className='ListDashboard'>
+      {/* <LeftDrawer /> */}
+      <div className="ListContainer">
         <h1 className="ListTitle">Fridge</h1>
         <FontAwesomeIcon icon={faSquarePlus} size="2xl" className="OpenAddFormBtn"
           onClick={() => setShowAddForm(true)}
@@ -43,6 +46,7 @@ export function List() {
             />
           )}
         </div>
+      </div>
     </div>
   )
 }

@@ -3,6 +3,12 @@
     src: url('../../public/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
 }
 
+.ListDashboard {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
 .ListContainer {
     position: relative;
     background-color: #E4EBB1;
