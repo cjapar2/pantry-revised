@@ -9,7 +9,10 @@
 
 .DrawerContainer {
     position: absolute;
-    padding: 10rem;
+    padding: 30vh 2vw;
     background-color: #2C664A;
-    left: 0rem;
+    border-radius: 0px 15px 15px 0px;
+    left: 0rem; /* Stick to the left edge */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for exact center */
 }

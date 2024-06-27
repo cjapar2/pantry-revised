@@ -4,8 +4,8 @@ import { Paper } from '@mui/material'
 
 export function LeftDrawer() {
   return (
-    <Paper className='DrawerContainer'>
+    <div className='DrawerContainer'>
       test
-    </Paper>  
+    </div>  
   )
 }
