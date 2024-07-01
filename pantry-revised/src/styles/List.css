@@ -12,12 +12,13 @@
 .ListContainer {
     position: relative;
     background-color: #E4EBB1;
+    min-width: 25rem;
     padding: 30vh 25rem 50vh 25rem;
     height: 0rem;
     margin-top: 6rem;
     bottom: 1rem;
     border-radius: 0px 15px 15px 15px;
-    font-size: 1rem;
+    font-size: 8px;
     overflow-y: auto;
     box-sizing: border-box;
 }
@@ -29,7 +30,7 @@
 .ListTitle {
     font-family: "Playfair Display";
     position: absolute;
-    font-size: 2em;
+    font-size: 2rem;
     top: 0rem;
     left: 2rem;
 }
@@ -39,6 +40,7 @@
     cursor: pointer;
     top: 2rem;
     right: 2rem;
+    font-size: 2rem;
 }
 
 .listingLabels {
@@ -48,10 +50,14 @@
     left: 1.5rem;
     border-bottom: 1px solid;
     padding-bottom: 0.5rem;
+    font-size: 1rem;
 }
 
 .listingLabels > div {
-    margin-right: 12rem;
+    margin-right: 15.5rem;
+    color: black;
+    background-color: blue;
+    font-size: 1rem;
 }
 
 .listingsContainer {
