@@ -19,7 +19,7 @@ export function List() {
 
   return (
     <div className='ListDashboard'>
-      {/* <LeftDrawer /> */}
+      {/* Container */}
       <div className="ListContainer">
         <h1 className="ListTitle">Fridge</h1>
         <FontAwesomeIcon icon={faSquarePlus} size="2xl" className="OpenAddFormBtn"
@@ -30,10 +30,12 @@ export function List() {
         </Modal>
         
         {/* List Labels */}
-        <div className='listingLabels'>
-          <div>Name</div>
-          <div>Amount</div>
-          <div>Comments</div>
+        <div className='labelsContainer'>
+          <div className='labels'>
+            <div>Name</div>
+            <div>Amount</div>
+            <div>Comments</div>
+          </div>
         </div>
         
         <div className='listingsContainer'>

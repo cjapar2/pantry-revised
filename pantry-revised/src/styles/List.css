@@ -43,22 +43,34 @@
     font-size: 2rem;
 }
 
-.listingLabels {
+.labelsContainer {
     position: absolute;
+    top: 5rem;
+
+}
+
+.labels {
+    position: relative;
     display: flex;
-    top: 6rem;
-    left: 1.5rem;
+    flex-direction: row;
+    justify-content: space-between;
     border-bottom: 1px solid;
     padding-bottom: 0.5rem;
     font-size: 1rem;
+    margin: 0rem -24rem;
+    padding: 1.2rem;
 }
 
-.listingLabels > div {
-    margin-right: 15.5rem;
+.labels > div {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 10rem;
+    min-width: 10rem;
     color: black;
-    background-color: blue;
     font-size: 1rem;
 }
+
 
 .listingsContainer {
     position: absolute;
