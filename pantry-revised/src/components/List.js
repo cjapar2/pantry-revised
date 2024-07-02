@@ -19,7 +19,6 @@ export function List() {
 
   return (
     <div className='ListDashboard'>
-      {/* Container */}
       <div className="ListContainer">
         <h1 className="ListTitle">Fridge</h1>
         <FontAwesomeIcon icon={faSquarePlus} size="2xl" className="OpenAddFormBtn"
@@ -38,6 +37,7 @@ export function List() {
           </div>
         </div>
         
+        {/* Container that contains item listings */}
         <div className='listingsContainer'>
           {/* Map out the list of itemlistings into individual components */}
           {items.map((itemObj) =>
