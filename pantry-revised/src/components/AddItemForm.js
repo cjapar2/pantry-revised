@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import '../styles/AddItemForm.css'
 import { Button, Stack } from '@mui/material'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers';
 
 
@@ -30,7 +31,7 @@ export default function AddItemForm({addItem}) {
                 <input type="text" placeholder='Name of Item' onChange={(e) => setItemName(e.target.value)}></input>
                 <input type="text" placeholder='Amount' onChange={(e) => setAmount(e.target.value)}></input>
                 <input type="text" placeholder='Date' onChange={(e) => setDateAdded(e.target.value)}></input>
-                <LocalizationProvider>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DatePicker label="Basic date picker" />
                 </LocalizationProvider>
                 <input type="text" placeholder='Comments' onChange={(e) => setComment(e.target.value)}></input>
