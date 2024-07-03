@@ -4,7 +4,7 @@
     flex-direction: row;
     justify-content: space-between;
     margin: 0rem -24rem;
-    padding: 1.5rem;
+    padding: 1.8rem;
     border-radius: 15px;
     margin-bottom: 1rem;
     background: #FFF3CA;
@@ -12,6 +12,19 @@
 }
 
 .itemContainer > div {
+    position: relative;
+    bottom: 1rem;
+    right: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 10rem;
+    min-width: 10rem;
+    color: black;
+    font-size: 1.2rem;
+}
+/* 
+.itemContainer > div:last-child {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -20,4 +33,4 @@
     color: black;
     font-size: 1rem;
     background-color: cyan;
-}
+} */

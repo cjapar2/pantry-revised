@@ -33,6 +33,7 @@ export function List() {
           <div className='labels'>
             <div>Name</div>
             <div>Amount</div>
+            <div>Date Added</div>
             <div>Comments</div>
           </div>
         </div>
@@ -44,6 +45,7 @@ export function List() {
             <ItemListing 
               itemName={itemObj.itemName}
               amount={itemObj.amount}
+              dateAdded={itemObj.dateAdded}
               comment={itemObj.comment}
             />
           )}
