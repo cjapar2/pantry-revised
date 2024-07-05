@@ -65,10 +65,10 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 10rem;
-    min-width: 10rem;
+    width: 10rem;
     color: black;
     font-size: 1rem;
+    background-color: cyan;
 }
 
 
