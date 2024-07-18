@@ -6,7 +6,14 @@
 .ListDashboard {
     display: flex;
     flex-direction: row;
+    align-items: center;
     height: 100vh;
+    /* width: 60vw; */
+    background-color: blue;
+}
+
+.listSideBar {
+    position: absolute;
 }
 
 .ListContainer {
@@ -46,7 +53,6 @@
 .labelsContainer {
     position: absolute;
     top: 5rem;
-
 }
 
 .labels {
@@ -56,8 +62,8 @@
     justify-content: space-between;
     border-bottom: 1px solid;
     padding-bottom: 0.5rem;
-    font-size: 1rem;
     margin: 0rem -24rem;
+    font-size: 1rem;
     padding: 1.2rem;
 }
 

@@ -21,7 +21,7 @@
     
 }
 
-.itemContainer > div:not(.comments) {
+.itemContainer > div:not(.comments, .dateAdded) {
     display: -webkit-box;
     -webkit-box-orient: horizontal;
     -webkit-line-clamp: 1;
@@ -32,7 +32,7 @@
     width: 10rem;
     color: black;
     font-size: 1.2rem;
-    /* background-color: cyan; */
+    background-color: cyan;
 }
 
 
@@ -47,4 +47,11 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     line-clamp: 2;
+}
+
+.dateAdded {
+    position: absolute;
+    top: -1.5rem;
+    right: 28.5rem;
+    font-size: 1.0rem;
 }
