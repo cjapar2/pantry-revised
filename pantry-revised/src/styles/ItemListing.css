@@ -15,6 +15,7 @@
 
 .itemContainer > div {
     position: relative;
+
 }
 
 .name {
@@ -32,7 +33,6 @@
 }
 
 .dateAdded {
-    position: relative;
     top: 0.5em;
     right: 8rem;
     font-size: 0.8rem;
@@ -45,14 +45,14 @@
 }
 
 .comments {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
     width: 11rem;
     right: 0.5rem;
     color: black;
     font-size: 0.8rem;
     /* background-color: cyan; */
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
 }

@@ -10,23 +10,11 @@ import { format, isToday, isYesterday } from 'date-fns';
 
 
 export default function AddItemForm({addItem}) {
+
   const [itemName, setItemName] = useState("");
   const [amount, setAmount] = useState(0);
   const [dateAdded, setDateAdded] = useState("");
   const [comment, setComment] = useState("");
-
-
-  const formatTime = (d) => {
-    let hours = d.getHours();
-    let minutes = d.getMinutes();
-    let ampm = hours >= 12 ? 'PM' : 'AM';
-    hours = hours % 12;
-    hours = hours ? hours : 12; // the hour '0' should be '12'
-    minutes = minutes < 10 ? '0'+ minutes : minutes;
-    const strTime = hours + ':' + minutes + ' ' + ampm;
-    return strTime;
-}
-
 
   const handleDate = (e) => {
     const date = new Date(e);
@@ -36,7 +24,7 @@ export default function AddItemForm({addItem}) {
     } else if (isYesterday(date)) {
         setDateAdded(`Yesterday at ${format(date, 'hh:mm aa')}`);
     } else {
-        setDateAdded(format(date, 'MM/dd/yyyy hh:mm aa'));
+        setDateAdded(format(date, 'MMM d, yyyy'));
     }
   }
 
@@ -61,7 +49,6 @@ export default function AddItemForm({addItem}) {
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DatePicker
                     onChange={(e) => handleDate(e)}
-                    value={new Date()}
                   />
                 </LocalizationProvider>
                 <input type="text" placeholder='Comments' onChange={(e) => setComment(e.target.value)}></input>

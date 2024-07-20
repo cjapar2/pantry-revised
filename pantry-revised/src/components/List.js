@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/List.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquarePlus } from '@fortawesome/free-regular-svg-icons';
@@ -9,12 +9,25 @@ import ItemListing from './ItemListing';
 
 export function List() {
 
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(() => {
+    // Initialize state from localStorage
+    const storedItems = JSON.parse(localStorage.getItem('items'));
+    console.log('Initializing items from localStorage:', storedItems); // Log initialization
+    return storedItems || [];
+  });
+  
+  // State to show addItemForm
   const [showAddForm, setShowAddForm] = useState(false);
+
+  // Store items in localStorage whenever items change
+  useEffect(() => {
+    console.log('Updating localStorage with items:', items); // Log updates
+    localStorage.setItem('items', JSON.stringify(items));
+  }, [items]);
 
   // Add itemlisting to list of itemlistings
   const addItem = (itemObj) => {
-    setItems([...items, itemObj]);
+    setItems((prevItems) => [...prevItems, itemObj]);
   };
 
   return (
@@ -29,13 +42,13 @@ export function List() {
         </Modal>
         
         {/* List Labels */}
-        <div className='labelsContainer'>
+        {/* <div className='labelsContainer'>
           <div className='labels'>
             <div>Name</div>
             <div>Amount</div>
             <div>Comments</div>
           </div>
-        </div>
+        </div> */}
         
         {/* Container that contains item listings */}
         <div className='listingsContainer'>
