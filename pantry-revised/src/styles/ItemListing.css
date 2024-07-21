@@ -6,7 +6,7 @@
             line-clamp: 3; */
     display: flex;
     margin: 0rem -24rem;
-    padding: 1.8rem;
+    padding: 3rem;
     border-radius: 15px;
     margin-bottom: 1rem;
     background: #FFF3CA;
@@ -14,43 +14,49 @@
 }
 
 .itemContainer > div {
-    position: relative;
-
+    position: absolute;
 }
 
 .name {
-    display: -webkit-box;
-    -webkit-box-orient: horizontal;
-    -webkit-line-clamp: 1;
-    line-clamp: 1;
+    /* Restrict name to one line */
     white-space: nowrap;
+    /* Hide text after width is 10rem */
+    max-width: 10rem;
+    /* Hide overflow with ellipsis */
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 10rem;
-    bottom: 1.5rem;
-    margin-left: 5rem;
+    /* Positioning */
+    top: 1rem;
+    left: 7rem;
+    /* Font size */
     font-size: 1.5rem;
 }
 
 .dateAdded {
-    top: 0.5em;
-    right: 8rem;
+    top: 3.8em;
+    left: 7rem;
     font-size: 0.8rem;
 }
 
 .amount {
     color: black;
     font-size: 1.2rem;
-    bottom: 0rem;
+    top: 1.3rem;
+    left: 20rem;
 }
 
 .comments {
+    /* Restrict text into two lines */
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     line-clamp: 2;
+    /* Hide overflow with ellipsis */
     overflow: hidden;
+    /* Restrict width of each line to 11rem */
     width: 11rem;
+    /* Positioning */
+    top: 1.5rem;
     right: 0.5rem;
     color: black;
     font-size: 0.8rem;

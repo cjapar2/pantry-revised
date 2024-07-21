@@ -28,6 +28,7 @@
     font-size: 8px;
     overflow-y: auto;
     box-sizing: border-box;
+    scrollbar-width: none;
 }
 
 .ListContainer::-webkit-scrollbar {
