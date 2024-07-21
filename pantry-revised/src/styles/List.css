@@ -53,7 +53,14 @@
 
 .labelsContainer {
     position: absolute;
+    padding: 0rem 10rem;
+    background-color: cyan;
     top: 5rem;
+    left: 0rem;
+}
+
+.nameLabel {
+    position: absolute;
 }
 
 .labels {
