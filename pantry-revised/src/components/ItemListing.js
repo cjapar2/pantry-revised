@@ -6,8 +6,8 @@ import { IconButton } from '@mui/material';
 export default function ItemListing({itemName, amount, dateAdded, comment}) {
   return (
     <div className='itemContainer'>
-      <IconButton size='small'>
-        <DeleteIcon className='deleteButton'/>
+      <IconButton className='delete-button' size='small'>
+        <DeleteIcon />
       </IconButton>
       <div className='name'>{itemName}</div>
       <div className='amount'>{amount}</div>

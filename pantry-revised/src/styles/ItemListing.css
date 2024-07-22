@@ -67,7 +67,7 @@
     /* background-color: cyan; */
 }
 
-.deleteButton {
+.delete-button.MuiIconButton-root {
     /* Positioning */
     position: absolute;
     right: 0rem;
@@ -75,4 +75,9 @@
     border-radius: 0.3rem;
     color: white;
     padding: 0.1rem;
+    /* opacity: 0; */
+}
+
+.delete-button.MuiIconButton-root:hover {
+    /* opacity: 1; */
 }
