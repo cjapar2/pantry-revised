@@ -17,6 +17,11 @@
     box-shadow: rgba(0, 0, 0, 0.52) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 
+.itemContainer:hover .delete-button.MuiIconButton-root {
+    opacity: 1;
+    pointer-events: auto;
+}
+
 .itemContainer > div {
     position: absolute;
 }
@@ -70,12 +75,14 @@
 .delete-button.MuiIconButton-root {
     /* Positioning */
     position: absolute;
-    right: 0rem;
+    right: 1rem;
+    top: -0.5rem;
     background-color: red;
     border-radius: 0.3rem;
     color: white;
     padding: 0.1rem;
-    /* opacity: 0; */
+    opacity: 0;
+    pointer-events: none;
 }
 
 .delete-button.MuiIconButton-root:hover {
