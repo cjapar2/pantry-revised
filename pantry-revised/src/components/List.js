@@ -85,6 +85,11 @@ export function List() {
           >
             {sortOrder}
           </Button>
+          <Button className='amountLabel'
+            variant='contained'
+          >
+            Amount
+          </Button>
         </div>
         
         {/* Container that contains item listings */}

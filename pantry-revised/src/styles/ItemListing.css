@@ -66,3 +66,12 @@
     font-size: 0.8rem;
     /* background-color: cyan; */
 }
+
+.deleteButton {
+    /* Positioning */
+    position: absolute;
+    right: 5rem;
+    background-color: red;
+    border-radius: 0.5rem;
+    color: white;
+}
