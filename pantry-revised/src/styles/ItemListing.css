@@ -13,10 +13,12 @@
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 
+/* On hover of itemListing, increase bottom shadow */
 .itemContainer:hover {
-    box-shadow: rgba(0, 0, 0, 0.52) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    box-shadow: rgba(0, 0, 0, 0.72) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 
+/* On hover of itemListing, increase opacity of delete button */
 .itemContainer:hover .delete-button.MuiIconButton-root {
     opacity: 1;
     pointer-events: auto;
@@ -67,6 +69,7 @@
     /* Positioning */
     top: 1.5rem;
     right: 0.5rem;
+    /* Text Color and Font Size */
     color: black;
     font-size: 0.8rem;
     /* background-color: cyan; */
@@ -77,14 +80,10 @@
     position: absolute;
     right: 1rem;
     top: -0.5rem;
-    background-color: red;
+    background-color: #f36464;
     border-radius: 0.3rem;
-    color: white;
+    color: rgb(82, 73, 73);
     padding: 0.1rem;
     opacity: 0;
     pointer-events: none;
-}
-
-.delete-button.MuiIconButton-root:hover {
-    /* opacity: 1; */
 }

@@ -1,20 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import '../styles/AddItemForm.css'
-import { Button, Stack } from '@mui/material'
+import { Button, Stack, Modal } from '@mui/material'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { format, isToday, isYesterday } from 'date-fns';
+import { ItemsContext } from './ItemsContext'
 
 
 
 
-export default function AddItemForm({addItem}) {
+export default function AddItemForm({ open, handleClose, item }) {
 
-  const [itemName, setItemName] = useState("");
-  const [amount, setAmount] = useState(0);
-  const [dateAdded, setDateAdded] = useState("");
-  const [comment, setComment] = useState("");
+  const { addItem, updateItem } = useContext(ItemsContext);
+
+  const [name, setItemName] = useState(item ? item.name : '');
+  const [amount, setAmount] = useState(item ? item.amount : 1);
+  const [dateAdded, setDateAdded] = useState(item ? new Date(item.dateAdded) : new Date());
+  const [comments, setComments] = useState(item ? item.comments : '');
 
   const handleDate = (e) => {
     const date = new Date(e);
@@ -28,18 +31,18 @@ export default function AddItemForm({addItem}) {
     }
   }
 
-  const handleItemSubmit = (e) => {
-    e.preventDefault();
-
-    console.log(e);
-    if (itemName) {
-      addItem({itemName, amount, dateAdded, comment});
-      setItemName('');
+  const handleItemSubmit = () => {
+    if (item) {
+      updateItem(item.id, { name, amount, dateAdded: dateAdded.toISOString(), comments });
     }
+    else {
+      addItem(name, amount, dateAdded.toISOString(), comments);
+    }
+    handleClose();
   };
 
   return (
-    <div className="AddItemContainer">
+    <Modal className="AddItemContainer">
         <form onSubmit={handleItemSubmit}>
             <h1>Add an item!</h1>
             <Stack className="AddFormStack" spacing={3}>
@@ -51,10 +54,10 @@ export default function AddItemForm({addItem}) {
                     onChange={(e) => handleDate(e)}
                   />
                 </LocalizationProvider>
-                <input type="text" placeholder='Comments' onChange={(e) => setComment(e.target.value)}></input>
+                <input type="text" placeholder='Comments' onChange={(e) => setComments(e.target.value)}></input>
                 <Button variant="contained" style={{backgroundColor: '#006769'}} type="submit">Submit</Button>
             </Stack>
         </form>
-    </div>
+    </Modal>
   )
 }
