@@ -42,8 +42,9 @@ export default function AddItemForm({ open, handleClose, item }) {
   };
 
   return (
-    <Modal className="AddItemContainer">
-        <form onSubmit={handleItemSubmit}>
+    <Modal open={open} onCLose={handleClose}>
+        <div className="AddItemContainer">
+          <form onSubmit={handleItemSubmit}>
             <h1>Add an item!</h1>
             <Stack className="AddFormStack" spacing={3}>
                 <input type="text" placeholder='Name of Item' onChange={(e) => setItemName(e.target.value)}></input>
@@ -58,6 +59,7 @@ export default function AddItemForm({ open, handleClose, item }) {
                 <Button variant="contained" style={{backgroundColor: '#006769'}} type="submit">Submit</Button>
             </Stack>
         </form>
+        </div>
     </Modal>
   )
 }

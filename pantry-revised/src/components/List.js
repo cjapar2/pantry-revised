@@ -24,12 +24,14 @@ export function List() {
     sortItems(key, direction);
   };
 
-  function handleOpenModal(item = null) {
+  function handleOpenAddForm(item = null) {
+    console.log('opening add form')
     setSelectedItem(item);
     setShowAddForm(true);
   };
 
-  function handleCloseModal() {
+  function handleCloseAddForm() {
+    console.log('closing add form')
     setShowAddForm(false);
     setSelectedItem(null);
   };
@@ -41,12 +43,12 @@ export function List() {
         <h1 className="ListTitle">Fridge</h1>
         {/* Button that opens AddItemForm and add items */}
         <FontAwesomeIcon icon={faSquarePlus} size="2xl" className="OpenAddFormBtn"
-          onClick={() => handleOpenModal()}
+          onClick={() => handleOpenAddForm()}
         />
         {/* Modal component that shows form to add items depending on button press */}
         <AddItemForm 
           open={showAddForm}
-          handleClose={handleCloseModal}
+          handleClose={handleCloseAddForm}
           item={selectedItem}
         />
         
@@ -61,7 +63,7 @@ export function List() {
               sortOrder === 'ascending' ? <ArrowUpward /> : <SwapVert />
             }
           >
-            {sortOrder}
+            {sortOrder.direction}
           </Button>
           <Button className='amountLabel'
             variant='contained'
