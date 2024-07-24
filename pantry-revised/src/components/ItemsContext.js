@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { format, isToday, isYesterday } from 'date-fns';
 
 const ItemsContext = createContext();
 
@@ -12,12 +13,14 @@ function ItemsProvider({ children }) {
         setItems(storedItems);
     }, []);
 
-    function addItem(name, amount = 1, dateAdded = new Date().toISOString(), comments) {
+    const d = new Date();
+
+    function addItem(name, amount = 1, date = `Today at ${format(d, 'hh:mm aa')}`, comments) {
         const newItem = {
             id: uuidv4(),
             name,
             amount: 0,
-            dateAdded,
+            date,
             comments,
         };
         const updatedItems = [...items, newItem];

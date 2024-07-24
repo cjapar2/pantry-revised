@@ -17,7 +17,7 @@ export default function ItemListing({item, onEdit}) {
       </IconButton>
       <div className='name'>{item.name}</div>
       <div className='amount'>{item.amount}</div>
-      <div className='dateAdded'>{item.dateAdded}</div>
+      <div className='date'>{item.date}</div>
       <div className='comments'>{item.comment}</div>
     </div>
   )

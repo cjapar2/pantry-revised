@@ -46,7 +46,6 @@ export function List() {
           onClick={() => handleOpenAddForm()}
         />
         {/* Modal component that shows form to add items depending on button press */}
-        
         <AddItemForm 
           open={showAddForm}
           handleClose={handleCloseAddForm}

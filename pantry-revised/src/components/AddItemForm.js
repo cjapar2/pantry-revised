@@ -16,34 +16,34 @@ export default function AddItemForm({ open, handleClose, item }) {
 
   const [name, setItemName] = useState(item ? item.name : '');
   const [amount, setAmount] = useState(item ? item.amount : 1);
-  const [dateAdded, setDateAdded] = useState(item ? new Date(item.dateAdded) : new Date());
+  const [date, setDate] = useState(item ? new Date(item.date) : new Date());
   const [comments, setComments] = useState(item ? item.comments : '');
 
   const handleDate = (e) => {
     const date = new Date(e);
 
     if (isToday(date)) {
-        return setDateAdded(`Today at ${format(date, 'hh:mm aa')}`);
+        return setDate(`Today at ${format(date, 'hh:mm aa')}`);
     } else if (isYesterday(date)) {
-        setDateAdded(`Yesterday at ${format(date, 'hh:mm aa')}`);
+        setDate(`Yesterday at ${format(date, 'hh:mm aa')}`);
     } else {
-        setDateAdded(format(date, 'MMM d, yyyy'));
+        setDate(format(date, 'MMM d, yyyy'));
     }
   }
 
   const handleItemSubmit = () => {
     if (item) {
-      updateItem(item.id, { name, amount, dateAdded: dateAdded.toISOString(), comments });
+      updateItem(item.id, { name, amount, date: date.toISOString(), comments });
     }
     else {
-      addItem(name, amount, dateAdded.toISOString(), comments);
+      addItem(name, amount, date.toISOString(), comments);
     }
     handleClose();
   };
 
   return (
-    <Modal open={open} onCLose={handleClose}
-      BackdropProps={{ onClick: handleClose }} // This line ensures the modal closes on backdrop click
+    <Modal open={open} onClose={handleClose}
+      // BackdropProps={{ onClick: handleClose }} // This line ensures the modal closes on backdrop click
       disableAutoFocus={true} // Disables the hideous blue highlight when opening modal
     >
         <div className="AddItemContainer">
@@ -52,7 +52,7 @@ export default function AddItemForm({ open, handleClose, item }) {
             <Stack className="AddFormStack" spacing={3}>
                 <input type="text" placeholder='Name of Item' onChange={(e) => setItemName(e.target.value)}  required/>
                 <input type="text" placeholder='Amount' onChange={(e) => setAmount(e.target.value)} />
-                {/* <input type="text" placeholder='Date' onChange={(e) => setDateAdded(e.target.value)}></input> */}
+                {/* <input type="text" placeholder='Date' onChange={(e) => setDate(e.target.value)}></input> */}
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DatePicker
                     onChange={(e) => handleDate(e)}
