@@ -42,13 +42,16 @@ export default function AddItemForm({ open, handleClose, item }) {
   };
 
   return (
-    <Modal open={open} onCLose={handleClose}>
+    <Modal open={open} onCLose={handleClose}
+      BackdropProps={{ onClick: handleClose }} // This line ensures the modal closes on backdrop click
+      disableAutoFocus={true} // Disables the hideous blue highlight when opening modal
+    >
         <div className="AddItemContainer">
           <form onSubmit={handleItemSubmit}>
             <h1>Add an item!</h1>
             <Stack className="AddFormStack" spacing={3}>
-                <input type="text" placeholder='Name of Item' onChange={(e) => setItemName(e.target.value)}></input>
-                <input type="text" placeholder='Amount' onChange={(e) => setAmount(e.target.value)}></input>
+                <input type="text" placeholder='Name of Item' onChange={(e) => setItemName(e.target.value)}  required/>
+                <input type="text" placeholder='Amount' onChange={(e) => setAmount(e.target.value)} />
                 {/* <input type="text" placeholder='Date' onChange={(e) => setDateAdded(e.target.value)}></input> */}
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DatePicker

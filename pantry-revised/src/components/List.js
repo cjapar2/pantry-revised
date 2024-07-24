@@ -46,10 +46,12 @@ export function List() {
           onClick={() => handleOpenAddForm()}
         />
         {/* Modal component that shows form to add items depending on button press */}
+        
         <AddItemForm 
           open={showAddForm}
           handleClose={handleCloseAddForm}
           item={selectedItem}
+          onClose={handleCloseAddForm}
         />
         
         {/* Container that contains labels */}
@@ -75,12 +77,11 @@ export function List() {
         {/* Container that contains item listings */}
         <div className='listingsContainer'>
           {/* Map out the list of itemlistings into individual components */}
-          {items.map((itemObj) =>
+          {items.map((item) =>
             <ItemListing 
-              name={itemObj.name}
-              amount={itemObj.amount}
-              dateAdded={itemObj.dateAdded}
-              comment={itemObj.comment}
+              key={item.id}
+              item={item}
+              onEdit={() => handleOpenAddForm(item)}
             />
           )}
         </div>

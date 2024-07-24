@@ -23,6 +23,8 @@ function ItemsProvider({ children }) {
         const updatedItems = [...items, newItem];
         setItems(updatedItems);
         localStorage.setItem('items', JSON.stringify(updatedItems));
+        console.log('Adding Item');
+        console.log('ResultingItems size:', updatedItems.length);
     };
 
     function updateItem(id, updatedItem) {
@@ -35,6 +37,8 @@ function ItemsProvider({ children }) {
         const updatedItems = items.filter(item => item.id !== id);
         setItems(updatedItems);
         localStorage.setItem('items', JSON.stringify(updatedItems));
+        console.log('Deleting item ', id);
+        console.log('Resulting items size:', updatedItems.length);
     };
 
     function sortItems(key, direction = 'ascending') {
