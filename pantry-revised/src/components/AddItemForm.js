@@ -53,7 +53,7 @@ export default function AddItemForm({ open, handleClose, item }) {
     >
         <div className="AddItemContainer">
           <form onSubmit={handleItemSubmit}>
-            <h1>Add an item!</h1>
+            <h1>{item ? 'Edit an Item!' : 'Add an Item!'}</h1>
             <Stack className="AddFormStack" spacing={3}>
                 <input type="text" placeholder='Name of Item' onChange={(e) => setName(e.target.value)}  required/>
                 <input type="text" placeholder='Amount' onChange={(e) => setAmount(e.target.value)} />

@@ -19,7 +19,7 @@
 }
 
 /* On hover of itemListing, increase opacity of delete button */
-.itemContainer:hover .delete-button.MuiIconButton-root {
+.itemContainer:hover .action-buttons {
     opacity: 1;
     pointer-events: auto;
 }
@@ -75,15 +75,28 @@
     /* background-color: cyan; */
 }
 
-.delete-button.MuiIconButton-root {
-    /* Positioning */
+.action-buttons {
     position: absolute;
     right: 1rem;
     top: -0.5rem;
-    background-color: #f36464;
+    background-color: #6cfa97;
+    opacity: 0;
+    padding: 1;
+    transition: opacity 0.3s;
+}
+
+.delete-button.MuiIconButton-root {
+    /* Positioning */
+    /* background-color: #f36464; */
     border-radius: 0.3rem;
     color: rgb(82, 73, 73);
-    padding: 0.1rem;
-    opacity: 0;
-    pointer-events: none;
+    opacity: 1;
+}
+
+.edit-button.MuiIconButton-root {
+    /* Positioning */
+    /* background-color: #6cfa97;   */
+    border-radius: 0.3rem;
+    color: rgb(82, 73, 73);
+    opacity: 1;
 }
