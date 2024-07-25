@@ -1,10 +1,10 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import '../styles/AddItemForm.css'
 import { Button, Stack, Modal } from '@mui/material'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers';
-import { format, isToday, isYesterday } from 'date-fns';
+import { parseISO } from 'date-fns';
 import { ItemsContext } from './ItemsContext'
 
 
@@ -14,22 +14,27 @@ export default function AddItemForm({ open, handleClose, item }) {
 
   const { addItem, updateItem } = useContext(ItemsContext);
 
-  const [name, setItemName] = useState(item ? item.name : '');
-  const [amount, setAmount] = useState(item ? item.amount : 1);
-  const [date, setDate] = useState(item ? new Date(item.date) : new Date());
-  const [comments, setComments] = useState(item ? item.comments : '');
+  const [name, setName] = useState('');
+  const [amount, setAmount] = useState(1);
+  const [date, setDate] = useState(new Date());
+  const [comments, setComments] = useState('');
 
-  const handleDate = (e) => {
-    const date = new Date(e);
-
-    if (isToday(date)) {
-        return setDate(`Today at ${format(date, 'hh:mm aa')}`);
-    } else if (isYesterday(date)) {
-        setDate(`Yesterday at ${format(date, 'hh:mm aa')}`);
-    } else {
-        setDate(format(date, 'MMM d, yyyy'));
+  useEffect(() => {
+    if (open) {
+      if (item) {
+        setName(item.name);
+        setAmount(item.amount);
+        setDate(parseISO(item.date));
+        setComments(item.comments);
+      }
+      else {
+        setName('');
+        setAmount(1);
+        setDate(new Date());
+        setComments('');
+      }
     }
-  }
+  }, [open, item]);
 
   const handleItemSubmit = () => {
     if (item) {
@@ -50,12 +55,12 @@ export default function AddItemForm({ open, handleClose, item }) {
           <form onSubmit={handleItemSubmit}>
             <h1>Add an item!</h1>
             <Stack className="AddFormStack" spacing={3}>
-                <input type="text" placeholder='Name of Item' onChange={(e) => setItemName(e.target.value)}  required/>
+                <input type="text" placeholder='Name of Item' onChange={(e) => setName(e.target.value)}  required/>
                 <input type="text" placeholder='Amount' onChange={(e) => setAmount(e.target.value)} />
                 {/* <input type="text" placeholder='Date' onChange={(e) => setDate(e.target.value)}></input> */}
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DatePicker
-                    onChange={(e) => handleDate(e)}
+                    onChange={(e) => setDate(e)}
                   />
                 </LocalizationProvider>
                 <input type="text" placeholder='Comments' onChange={(e) => setComments(e.target.value)}></input>

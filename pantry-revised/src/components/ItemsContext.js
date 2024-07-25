@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { format, isToday, isYesterday } from 'date-fns';
+import { format } from 'date-fns';
 
 const ItemsContext = createContext();
 
@@ -19,7 +19,7 @@ function ItemsProvider({ children }) {
         const newItem = {
             id: uuidv4(),
             name,
-            amount: 0,
+            amount,
             date,
             comments,
         };
