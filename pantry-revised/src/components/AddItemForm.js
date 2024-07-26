@@ -18,6 +18,24 @@ export default function AddItemForm({ open, handleClose, item }) {
   const [amount, setAmount] = useState(1);
   const [date, setDate] = useState(new Date());
   const [comments, setComments] = useState('');
+  const [imageSrc, setImageSrc] = useState(null);
+
+  useEffect(() => {
+    if (imageSrc) {
+      const reader = new FileReader();
+      reader.onloaded = () => {
+        setImageSrc(reader.result);
+      };
+      reader.readAsDataURL(imageSrc);
+    } 
+  }, [imageSrc]);
+
+  function handleFileChange(e) {
+    const file = e.target.files[0];
+    if (file) {
+      setImageSrc(file);
+    }
+  };
 
   useEffect(() => {
     if (open) {
@@ -38,10 +56,10 @@ export default function AddItemForm({ open, handleClose, item }) {
 
   const handleItemSubmit = () => {
     if (item) {
-      updateItem(item.id, { name, amount, date: date.toISOString(), comments });
+      updateItem(item.id, { name, amount, date: date.toISOString(), comments, imageSrc });
     }
     else {
-      addItem(name, amount, date.toISOString(), comments);
+      addItem(name, amount, date.toISOString(), comments, imageSrc);
     }
     handleClose();
   };
@@ -65,6 +83,7 @@ export default function AddItemForm({ open, handleClose, item }) {
                 </LocalizationProvider>
                 <input type="text" placeholder='Comments' onChange={(e) => setComments(e.target.value)}></input>
                 <Button variant="contained" style={{backgroundColor: '#006769'}} type="submit">Submit</Button>
+                <input type='file' accept='image/*' onChange={handleFileChange} />
             </Stack>
         </form>
         </div>

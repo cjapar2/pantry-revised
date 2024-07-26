@@ -24,6 +24,13 @@ export default function ItemListing({item, onEdit}) {
 
   return (
     <div className='itemContainer'>
+      <img src='https://placedog.net/100/100?random' alt={item.name} className='image'/>
+      <div className='name'>{item.name}</div>
+      <div className='amount'>{item.amount}</div>
+      <div className='date'>{formatDate(item.date)}</div>
+      <div className='comments'>{item.comments}</div>
+
+      {/* Edit and Delete buttons */}
       <ButtonGroup className='action-buttons'>
         <Tooltip title='Edit' placement='top'>
           <IconButton classname='edit-button' size='small'
@@ -40,10 +47,6 @@ export default function ItemListing({item, onEdit}) {
           </IconButton>
         </Tooltip>
       </ButtonGroup>
-      <div className='name'>{item.name}</div>
-      <div className='amount'>{item.amount}</div>
-      <div className='date'>{formatDate(item.date)}</div>
-      <div className='comments'>{item.comments}</div>
     </div>
   )
 }
