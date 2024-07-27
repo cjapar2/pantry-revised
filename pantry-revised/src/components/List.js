@@ -8,6 +8,7 @@ import ItemListing from './ItemListing';
 import { Button } from '@mui/material';
 import { ArrowDownward, ArrowUpward, SwapVert } from '@mui/icons-material';
 import { ItemsContext } from'./ItemsContext';
+import { SidePanel } from './SidePanel';
 // import { LeftDrawer } from './LeftDrawer';
 
 export function List() {
@@ -39,7 +40,11 @@ export function List() {
 
   return (
     <div className='ListDashboard'>
+        
+      <SidePanel />
       <div className="ListContainer">
+
+
         <h1 className="ListTitle">Fridge</h1>
         {/* Button that opens AddItemForm and add items */}
         <FontAwesomeIcon icon={faSquarePlus} size="2xl" className="OpenAddFormBtn"

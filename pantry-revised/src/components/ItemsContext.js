@@ -15,7 +15,7 @@ function ItemsProvider({ children }) {
 
     const d = new Date();
 
-    function addItem(name, amount = 1, date = `Today at ${format(d, 'hh:mm aa')}`, comments, imageSrc) {
+    function addItem(name, amount = 1, date, comments, imageSrc) {
         const newItem = {
             id: uuidv4(),
             name,

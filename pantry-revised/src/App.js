@@ -4,6 +4,7 @@ import { List } from './components/List';
 import { LeftDrawer } from './components/LeftDrawer';
 import { ListTabs } from './components/ListTabs';
 import { ItemsProvider } from './components/ItemsContext';
+import { SidePanel } from './components/SidePanel';
 
 function App() {
   return (

@@ -5,14 +5,16 @@ import EditIcon from '@mui/icons-material/Edit';
 import { IconButton, ButtonGroup, Tooltip } from '@mui/material';
 import { ItemsContext } from './ItemsContext';
 import {format, isToday, isYesterday, parseISO } from 'date-fns';
+import { AddTaskRounded } from '@mui/icons-material';
 
 export default function ItemListing({item, onEdit}) {
   
   const { deleteItem } = useContext(ItemsContext);
-
+  
   function formatDate(dateString) {
+    console.log('d:', dateString);
     const date = parseISO(dateString);
-    console.log('date:', date)
+    console.log('date:', date);
     if (isToday(date)) {
       return `Today at ${format(date, 'h:mm a')}`;
     } else if (isYesterday(date)) {
@@ -24,7 +26,9 @@ export default function ItemListing({item, onEdit}) {
 
   return (
     <div className='itemContainer'>
-      <img src='https://placedog.net/100/100?random' alt={item.name} className='image'/>
+      <div className='imageContainer'>
+        <img src='https://placedog.net/100/100?random' alt={item.name} className='image'/>
+      </div>
       <div className='name'>{item.name}</div>
       <div className='amount'>{item.amount}</div>
       <div className='date'>{formatDate(item.date)}</div>

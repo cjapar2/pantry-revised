@@ -1,0 +1,57 @@
+.sidePanelContainer {
+    position: absolute;
+    background-color: #2C664A;
+    top: 2rem;
+    left: 23rem;
+    transform: translateY(-50%); 
+    padding: 10rem 10rem;
+    border-radius: 15px;
+}
+
+.buttonGroup {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    padding: 2rem 0.5rem;
+    border-radius: 0px 15px 15px 0px;
+    background-color: cyan;
+}
+
+.contentContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 15rem;
+    background-color: greenyellow;
+    border-radius: 15px;
+}
+
+/* .sidePanel {
+    position: absolute;
+    background-color: #2C664A;
+    top: 0;
+    left: 50;
+    padding: 10rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.sidePanel.open {
+    transform: translateX(0);
+}
+
+.buttonGroup {
+    position: absolute;
+    background-color: #2C664A;
+    padding: 1rem;
+    transform: translateY(-50%);
+    z-index: 1001;
+}
+
+.sidePanelContent {
+    background-color: #2C664A;
+    padding: 20px;
+    overflow-y: auto;
+    height: 100%;
+} */

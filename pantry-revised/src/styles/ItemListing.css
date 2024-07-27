@@ -11,7 +11,7 @@
     margin-bottom: 1rem;
     background: #FFF3CA;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 /* On hover of itemListing, increase bottom shadow */
@@ -21,6 +21,16 @@
 
 .itemContainer > div {
     position: absolute;
+}
+
+.imageContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* background-color: blue; */
+    padding: 3rem;
+    border-radius: 15px 0px 0px 15px;
+    overflow: hidden;
 }
 
 .image {
