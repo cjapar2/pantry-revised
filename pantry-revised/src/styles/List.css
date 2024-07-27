@@ -4,6 +4,7 @@
 }
 
 .ListDashboard {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -13,12 +14,13 @@
     background-color: blue;
 }
 
-.listSideBar {
+/* .listSideBar {
     position: absolute;
-}
+} */
 
 .ListContainer {
-    position: relative;
+    top: 0;
+    position: absolute;
     background-color: #E4EBB1;
     min-width: 25rem;
     padding: 30vh 25rem 50vh 25rem;

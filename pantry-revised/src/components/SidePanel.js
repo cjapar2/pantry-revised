@@ -21,7 +21,7 @@ export function SidePanel() {
 
     return (
         <div className='sidePanelContainer'>
-            {/* <div className='buttonGroup'>
+            <div className='buttonGroup'>
                 <ButtonGroup orientation='vertical'>
                     <IconButton onClick={() => togglePanel('filters')}>
                         <FilterAltIcon />
@@ -30,7 +30,7 @@ export function SidePanel() {
                         <HistoryOutlinedIcon />
                     </IconButton>
                 </ButtonGroup>
-            </div> */}
+            </div>
             <div className='contentContainer'>
                 hi
             </div>

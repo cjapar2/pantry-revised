@@ -39,9 +39,9 @@ export function List() {
 
 
   return (
-    <div className='ListDashboard'>
-        
-      <SidePanel />
+    <div className='ListDashboard'>        
+    <SidePanel />
+
       <div className="ListContainer">
 
 
