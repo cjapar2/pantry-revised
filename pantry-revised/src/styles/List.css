@@ -5,13 +5,14 @@
 
 .ListDashboard {
     position: relative;
+    /* Styles to keep listContainer centered */
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     height: 100vh;
     /* width: 60vw; */
-    background-color: blue;
+    /* background-color: blue; */
 }
 
 /* .listSideBar {
@@ -19,16 +20,14 @@
 } */
 
 .ListContainer {
-    top: 0;
-    position: absolute;
+    position: relative;
     background-color: #E4EBB1;
     min-width: 25rem;
-    padding: 30vh 25rem 50vh 25rem;
+    padding: 40vh 25rem 40vh 25rem;
     height: 0rem;
     margin-top: 6rem;
     bottom: 1rem;
     border-radius: 0px 15px 15px 15px;
-    font-size: 8px;
     overflow-y: auto;
     box-sizing: border-box;
     scrollbar-width: none;
@@ -101,3 +100,10 @@
     left: 25rem;
     top: 10rem;
 }   
+/* 
+@media (max-width: 2000px) {
+    .ListContainer {
+    background-color: cyan;
+    padding: 40vh 25rem 40vh 25rem;
+    }
+} */

@@ -1,10 +1,10 @@
 .sidePanelContainer {
     position: absolute;
     background-color: #2C664A;
-    top: 20rem;
-    left: 40rem;
-    transform: translateY(-50%); 
-    padding: 40vh 15rem;
+    top: 60px;
+    left: 200px;    padding: 40vh 25rem 40vh 25rem;
+
+    padding: 30vh 15rem 30vh 15rem;
     border-radius: 0px 15px 15px 0px; 
 }
 
