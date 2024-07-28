@@ -20,17 +20,19 @@
 } */
 
 .ListContainer {
-    position: relative;
+    position: absolute;
     background-color: #E4EBB1;
     min-width: 25rem;
     padding: 40vh 25rem 40vh 25rem;
-    height: 0rem;
-    margin-top: 6rem;
-    bottom: 1rem;
+    /* height: 0rem; */
+    /* Ensure List stays in middle of screen */
+    top: 50%;
+    transform: translateY(-50%);
     border-radius: 0px 15px 15px 15px;
     overflow-y: auto;
     box-sizing: border-box;
     scrollbar-width: none;
+    opacity: 0.5;
 }
 
 .ListContainer::-webkit-scrollbar {
@@ -100,10 +102,10 @@
     left: 25rem;
     top: 10rem;
 }   
-/* 
-@media (max-width: 2000px) {
+
+@media (max-width: 1800px) {
     .ListContainer {
     background-color: cyan;
-    padding: 40vh 25rem 40vh 25rem;
+    /* padding: 40vh 25rem 40vh 25rem; */
     }
-} */
+}

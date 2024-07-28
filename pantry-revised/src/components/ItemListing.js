@@ -37,7 +37,7 @@ export default function ItemListing({item, onEdit}) {
       {/* Edit and Delete buttons */}
       <ButtonGroup className='action-buttons'>
         <Tooltip title='Edit' placement='top'>
-          <IconButton classname='edit-button' size='small'
+          <IconButton className='edit-button' size='small'
             onClick={() => onEdit(item)}
           >
             <EditIcon />

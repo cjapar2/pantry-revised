@@ -20,7 +20,7 @@ export function SidePanel() {
     };
 
     return (
-        <div className='sidePanelContainer'>
+        <div className={`sidePanelContainer ${panelOpen ? 'open' : ''}`}>
             <div className='buttonGroup'>
                 <ButtonGroup orientation='vertical'>
                     <IconButton onClick={() => togglePanel('filters')}>
