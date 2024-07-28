@@ -2,7 +2,7 @@ import { ButtonGroup } from '@mui/material';
 import React, { useState } from 'react';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import HistoryOutlinedIcon from '@mui/icons-material/HistoryOutlined';
-import CloseIcon from '@mui/icons-material/Close';
+import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import { IconButton } from '@mui/material';
 import '../styles/SidePanel.css'
 
@@ -24,15 +24,17 @@ export function SidePanel() {
             <div className='buttonGroup'>
                 <ButtonGroup orientation='vertical'>
                     <IconButton onClick={() => togglePanel('filters')}>
-                        <FilterAltIcon />
+                        <FilterAltIcon className='filter-button' />
                     </IconButton>
                     <IconButton onClick={() => togglePanel('changelog')}>
-                        <HistoryOutlinedIcon />
+                        <HistoryOutlinedIcon className='changelog-button' />
                     </IconButton>
                 </ButtonGroup>
             </div>
             <div className='contentContainer'>
-                hi
+                <IconButton onClick={closePanel} size='large'>
+                    <KeyboardDoubleArrowLeftIcon fontSize='inherit' className='close-button' />
+                </IconButton>
             </div>
         </div>
         // <div className={`sidePanel ${panelOpen ?  'open' : ''}`}>

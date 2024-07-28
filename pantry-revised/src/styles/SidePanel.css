@@ -1,17 +1,20 @@
 
 .sidePanelContainer {
+    /* Positioning */
     position: absolute;
+    /* Using % prevents from drastically changing position when expanding resolution */
     top: 15%;
     left: -2.8rem;
+    /* use vh to scale with resolution/size of screen */
     padding: 30vh 15rem;
     border-radius: 0px 15px 15px 0px;
-    /* transform: translateX(40.6%); */
+    /* Transition animation when side panel slides out */
     transition: left 0.1s ease-in-out;
 }
 
+/* When a button on the buttonGroup is clicked, move sidePanel to the right */
 .sidePanelContainer.open {
-    /* transform: translateX(20); */
-    left: 18rem;
+    left: 18.2rem;
 }
 
 .buttonGroup {
@@ -20,16 +23,31 @@
     right: 0;
     padding: 2rem 0rem;
     border-radius: 0px 15px 15px 0px;
-    background-color: cyan;
+    background-color: #2C664A;
 }
 
 .contentContainer {
     position: absolute;
     top: 0;
     right: 35px;
-    padding: 25vh 10rem 25vh 10rem;
+    padding: 25vh 10rem;
     background-color: #2C664A;
     border-radius: 0px 15px 15px 0px; 
+}
+
+.filter-button {
+    color: #b8c4ac;
+}
+
+.changelog-button {
+    color: #b8c4ac;
+}
+
+.close-button {
+    position: absolute;
+    color: white;
+    top: -17rem;
+    left: -9rem;
 }
 
 /* .sidePanel {

@@ -5,7 +5,6 @@ import EditIcon from '@mui/icons-material/Edit';
 import { IconButton, ButtonGroup, Tooltip } from '@mui/material';
 import { ItemsContext } from './ItemsContext';
 import {format, isToday, isYesterday, parseISO } from 'date-fns';
-import { AddTaskRounded } from '@mui/icons-material';
 
 export default function ItemListing({item, onEdit}) {
   
