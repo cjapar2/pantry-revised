@@ -32,8 +32,8 @@ export function SidePanel() {
                 </ButtonGroup>
             </div>
             <div className='contentContainer'>
-                <IconButton onClick={closePanel} size='large'>
-                    <KeyboardDoubleArrowLeftIcon fontSize='inherit' className='close-button' />
+                <IconButton onClick={closePanel} size='large' className='close-button'>
+                    <KeyboardDoubleArrowLeftIcon fontSize='inherit'  />
                 </IconButton>
             </div>
         </div>

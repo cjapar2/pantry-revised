@@ -2,19 +2,21 @@
 .sidePanelContainer {
     /* Positioning */
     position: absolute;
+    display: flex;
     /* Using % prevents from drastically changing position when expanding resolution */
     top: 15%;
-    left: -2.8rem;
+    left: 115.1px;
     /* use vh to scale with resolution/size of screen */
-    padding: 30vh 15rem;
+    padding: 20rem 10rem;
     border-radius: 0px 15px 15px 0px;
     /* Transition animation when side panel slides out */
     transition: left 0.1s ease-in-out;
+    /* background-color: mediumturquoise; */
 }
 
 /* When a button on the buttonGroup is clicked, move sidePanel to the right */
 .sidePanelContainer.open {
-    left: 18.2rem;
+    left: 487px;
 }
 
 .buttonGroup {
@@ -30,7 +32,7 @@
     position: absolute;
     top: 0;
     right: 35px;
-    padding: 25vh 10rem;
+    padding: 15rem 10rem;
     background-color: #2C664A;
     border-radius: 0px 15px 15px 0px; 
 }
@@ -45,37 +47,8 @@
 
 .close-button {
     position: absolute;
+    margin-right: 2rem;
     color: white;
-    top: -17rem;
-    left: -9rem;
+    bottom: 160px;
+    right: 160px;
 }
-
-/* .sidePanel {
-    position: absolute;
-    background-color: #2C664A;
-    top: 0;
-    left: 50;
-    padding: 10rem;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-    z-index: 1000;
-}
-
-.sidePanel.open {
-    transform: translateX(0);
-}
-
-.buttonGroup {
-    position: absolute;
-    background-color: #2C664A;
-    padding: 1rem;
-    transform: translateY(-50%);
-    z-index: 1001;
-}
-
-.sidePanelContent {
-    background-color: #2C664A;
-    padding: 20px;
-    overflow-y: auto;
-    height: 100%;
-} */
