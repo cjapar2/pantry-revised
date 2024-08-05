@@ -94,9 +94,9 @@
     position: absolute;
     right: 1rem;
     top: -0.5rem;
-    background-color: #6cfa97;
+    background-color: #367c5a;
     opacity: 0;
-    padding: 1;
+    padding: 0.1rem;
     transition: opacity 0.3s;
 }
 
@@ -110,7 +110,7 @@
     /* Positioning */
     /* background-color: #f36464; */
     border-radius: 0.3rem;
-    color: rgb(82, 73, 73);
+    color: #b8c4ac;
     opacity: 1;
 }
 
@@ -118,6 +118,6 @@
     /* Positioning */
     /* background-color: #6cfa97;   */
     border-radius: 0.3rem;
-    color: rgb(82, 73, 73);
+    color: #b8c4ac;
     opacity: 1;
 }

@@ -3,6 +3,10 @@
     src: url('../../public/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
 }
 
+* {
+    box-sizing: border-box;
+}
+
 .ListDashboard {
     position: relative;
     /* Styles to keep listContainer centered */

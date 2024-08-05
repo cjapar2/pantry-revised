@@ -5,18 +5,20 @@
     display: flex;
     /* Using % prevents from drastically changing position when expanding resolution */
     top: 15%;
-    left: 115.1px;
+    left: 115px;
     /* use vh to scale with resolution/size of screen */
-    padding: 20rem 10rem;
+    padding: 15rem 10rem;
+    width: 15rem;
+    height: 10rem;
     border-radius: 0px 15px 15px 0px;
     /* Transition animation when side panel slides out */
-    transition: left 0.1s ease-in-out;
+    transition: left 0.3s ease-in-out;
     /* background-color: mediumturquoise; */
 }
 
 /* When a button on the buttonGroup is clicked, move sidePanel to the right */
 .sidePanelContainer.open {
-    left: 487px;
+    left: 435px;
 }
 
 .buttonGroup {
@@ -25,7 +27,7 @@
     right: 0;
     padding: 2rem 0rem;
     border-radius: 0px 15px 15px 0px;
-    background-color: #2C664A;
+    background-color: #367c5a;
 }
 
 .contentContainer {
@@ -33,6 +35,9 @@
     top: 0;
     right: 35px;
     padding: 15rem 10rem;
+    /* Ensure size of container is the same as the sidePanelContainer (parent) */
+    width: 15rem;
+    height: 10rem;
     background-color: #2C664A;
     border-radius: 0px 15px 15px 0px; 
 }
@@ -45,10 +50,27 @@
     color: #b8c4ac;
 }
 
-.close-button {
-    position: absolute;
-    margin-right: 2rem;
-    color: white;
-    bottom: 160px;
+.close-button.MuiIconButton-root {
+    color: #b8c4ac;
+    bottom: 240px;
     right: 160px;
+}
+
+
+.filtersContent {
+    position: absolute;
+    background-color: pink;
+    padding: 15rem 10rem;
+    top: 0;
+    left: 0;
+    border-radius: 0px 15px 15px 0px; 
+}
+
+.changelogContent {
+    position: absolute;
+    background-color: aquamarine;
+    padding: 15rem 10rem;
+    top: 0;
+    left: 0;
+    border-radius: 0px 15px 15px 0px; 
 }
