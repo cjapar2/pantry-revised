@@ -1,0 +1,32 @@
+.itemFormContainer {
+    position: absolute;
+    padding: 15rem 10rem;
+    width: 15rem;
+    height: 10rem;
+    top: 0;
+    left: 0;
+    border-radius: 0px 15px 15px 0px; 
+    background-color: red;
+}
+
+
+h1 {
+    position: absolute;
+}
+
+/* .name-field .MuiInputBase-root {
+    position: absolute;
+    width: 10rem;
+    color: black;
+    background-color: white;    
+    flex-grow: 1;
+}
+
+input {
+    border-radius: 0.25r    em;
+    font-size: 1.25rem;
+}
+
+.AddBtn {
+    color: #006769;
+} */

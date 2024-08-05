@@ -10,7 +10,7 @@ import { ItemsContext } from './ItemsContext'
 
 
 
-export default function AddItemForm({ open, handleClose, item }) {
+export function AddItemForm({ open, handleClose, item }) {
 
   const { addItem, updateItem } = useContext(ItemsContext);
 

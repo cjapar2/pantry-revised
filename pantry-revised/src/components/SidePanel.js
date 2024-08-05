@@ -1,11 +1,16 @@
-import { ButtonGroup } from '@mui/material';
+import { ButtonGroup, Icon } from '@mui/material';
 import React, { useState } from 'react';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import HistoryOutlinedIcon from '@mui/icons-material/HistoryOutlined';
+import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import { IconButton } from '@mui/material';
 import '../styles/SidePanel.css'
-import { render } from '@testing-library/react';
+import { Filters } from './sidePanelPages/Filters';
+import { Changelog } from './sidePanelPages/Changelog';
+import { AddItemForm } from './AddItemForm';
+import { NewItemForm } from './NewItemForm';
+
 
 export function SidePanel() {
     const [panelOpen, setPanelOpen] = useState(false);
@@ -24,12 +29,16 @@ export function SidePanel() {
 
     function renderContent() {
         switch (activeFeature) {
+            case 'addItemForm':
+                return <NewItemForm />
             case 'filters':
                 console.log('selected filters');
-                return <div className='filtersContent'></div>
+                return <Filters />
             case 'changelog':
                 console.log('selected changelog');
-                return <div className='changelogContent'></div>
+                return <Changelog />
+            default:
+                return <div></div>
         }
     }
 
@@ -37,6 +46,10 @@ export function SidePanel() {
         <div className={`sidePanelContainer ${panelOpen ? 'open' : ''}`}>
             <div className='buttonGroup'>
                 <ButtonGroup orientation='vertical'>
+                    <IconButton onClick={() => togglePanel('addItemForm')}>
+                        <AddBoxOutlinedIcon className='add-button' />
+                    </IconButton>
+                    
                     <IconButton onClick={() => togglePanel('filters')}>
                         <FilterAltIcon className='filter-button' />
                     </IconButton>
@@ -46,10 +59,10 @@ export function SidePanel() {
                 </ButtonGroup>
             </div>
             <div className='contentContainer'>
+                {renderContent()}
                 <IconButton onClick={closePanel} size='large' className='close-button'>
                     <KeyboardDoubleArrowLeftIcon fontSize='inherit'  />
                 </IconButton>
-                {renderContent()}
             </div>
         </div>
     )

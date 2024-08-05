@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import '../styles/List.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquarePlus } from '@fortawesome/free-regular-svg-icons';
-import AddItemForm from './AddItemForm';
+import { AddItemForm } from './AddItemForm';
 import Modal from '@mui/material/Modal';
 import ItemListing from './ItemListing';
 import { Button } from '@mui/material';
