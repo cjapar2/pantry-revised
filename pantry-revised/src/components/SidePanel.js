@@ -28,6 +28,7 @@ export function SidePanel() {
     };
 
     function renderContent() {
+        // Switch case to render sidePanel pages depending on what feature user chooses
         switch (activeFeature) {
             case 'addItemForm':
                 return <NewItemForm />

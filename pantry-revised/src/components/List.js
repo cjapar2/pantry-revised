@@ -39,12 +39,10 @@ export function List() {
 
 
   return (
-    <div className='ListDashboard'>        
+    <div className='ListDashboard'>
+    {/* Render SidePanel behind ListContainer */}
     <SidePanel />
-
       <div className="ListContainer">
-
-
         <h1 className="ListTitle">Fridge</h1>
         {/* Button that opens AddItemForm and add items */}
         <FontAwesomeIcon icon={faSquarePlus} size="2xl" className="OpenAddFormBtn"

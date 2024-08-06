@@ -7,9 +7,9 @@
     top: 15%;
     left: 115px;
     /* use vh to scale with resolution/size of screen */
-    padding: 15rem 10rem;
-    width: 15rem;
-    height: 10rem;
+    padding: 18rem 10rem;
+    width: 18rem;
+    height: 20rem;
     border-radius: 0px 15px 15px 0px;
     /* Transition animation when side panel slides out */
     transition: left 0.3s ease-in-out;
@@ -34,10 +34,10 @@
     position: absolute;
     top: 0;
     right: 35px;
-    padding: 15rem 10rem;
+    padding: 18rem 10rem;
     /* Ensure size of container is the same as the sidePanelContainer (parent) */
     width: 15rem;
-    height: 10rem;
+    height: 18rem;
     background-color: #2C664A;
     border-radius: 0px 15px 15px 0px; 
 }
@@ -56,6 +56,6 @@
 
 .close-button.MuiIconButton-root {
     color: #b8c4ac;
-    bottom: 240px;
-    right: 160px;
+    bottom: 18rem;
+    right: 10rem;
 }

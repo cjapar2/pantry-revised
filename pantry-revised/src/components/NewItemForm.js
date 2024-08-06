@@ -1,11 +1,36 @@
 import React, { useState, useContext, useEffect } from 'react'
 import '../styles/NewItemForm.css'
-import { Button, Grid, Box, TextField } from '@mui/material'
+import { styled } from '@mui/material/styles';
+import { Button, Grid, Box, TextField, Paper} from '@mui/material'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { parseISO } from 'date-fns';
 import { ItemsContext } from './ItemsContext'
+
+const CustomTextField = styled(TextField)({
+  '& .MuiOutlinedInput-root': {
+    backgroundColor: '#568A80',
+    '& fieldset': {
+      borderColor: 'white', // Default border color
+    },
+    '&:hover fieldset': {
+      borderColor: 'white', // Border color on hover
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: 'white', // Border color when focused
+    },
+  },
+  '& .MuiInputLabel-root': {
+    color: 'white', // Default label color
+  },
+  '&:hover .MuiInputLabel-root': {
+    color: 'white', // Label color on hover
+  },
+  '& .Mui-focused .MuiInputLabel-root': {
+    color: 'white', // Label color when focused
+  },
+});
 
 export function NewItemForm({item}) {
     const { addItem, updateItem } = useContext(ItemsContext);
@@ -65,74 +90,116 @@ export function NewItemForm({item}) {
       }
 
   return (
-    <Box component='form' sx={{
-
-        position: 'absolute;',
-        padding: '15rem 10rem',
-        width: '15rem',
-        height: '10rem',
-        top: '0',
-        left: '0',
-        borderRadius: '0px 15px 15px 0px', 
-        backgroundColor: 'red',
-    }} onSubmit={handleItemSubmit}>
-        <Grid container spacing={1}>
-        {/* First TextField */}
-        <Grid item xs={1}>
-          <TextField
-            required
-            fullWidth
-            id="firstField"
-            label="First Field"
-            name="firstField"
+    <Box className='itemFormContainer'>
+    <Grid container spacing={2} className='itemFormGrid'>
+      {/* Item Name TextField */}
+      <Grid item xs={12}>
+        <CustomTextField
+          size='small'
+          label="Item Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className='name-field'
+          fullWidth
+        />
+      </Grid>
+      {/* Amount TextField */}
+      <Grid item xs={4}>
+        <CustomTextField
+          size='small'
+          label="Amount"
+          type="number"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          fullWidth
+        />
+      </Grid>
+      {/* Amount Unit TextField */}
+      <Grid item xs={8}>
+        <CustomTextField
+          size='small'
+          label="Unit"
+          onChange={(e) => setAmount(e.target.value)}
+          fullWidth
+        />
+      </Grid>
+      {/* Date Picker */}
+      <Grid item xs={12}>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DatePicker
+            onChange={(e) => setDate(e)}
+            slotProps={{
+              textField: {
+                size: 'small',
+                sx: {
+                  width: '100%', // using width here because 'xs={12}' prop doesn't take upp the entire row
+                  backgroundColor: '#568A80',
+              '& .MuiOutlinedInput-root': {
+                height: '50px',
+                color: 'white', // Text color
+                '& fieldset': {
+                  borderColor: 'white', // Border color
+                },
+                '&:hover fieldset': {
+                  borderColor: 'white', // Border color on hover
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: 'white', // Border color when focused
+                },
+              },
+              '& .MuiInputLabel-root': {
+                color: 'white', // Label color
+              },
+              '&:hover .MuiInputLabel-root': {
+                color: 'white', // Label color on hover
+              },
+              '& .Mui-focused .MuiInputLabel-root': {
+                color: 'white', // Label color when focused
+              },
+                }
+              }
+            }}
           />
-        </Grid>
-        {/* Second TextField and Button */}
-        <Grid item xs={8}>
-          <TextField
-            required
-            fullWidth
-            id="secondField"
-            label="Second Field"
-            name="secondField"
-          />
-        </Grid>
-        <Grid item xs={4}>
-          <Button variant="contained" color="primary" fullWidth>
-            Button
-          </Button>
-        </Grid>
-        {/* Third TextField */}
-        <Grid item xs={12}>
-          <TextField
-            required
-            fullWidth
-            id="thirdField"
-            label="Third Field"
-            name="thirdField"
-          />
-        </Grid>
-        {/* Submit Button */}
-        <Grid item xs={12}>
-          <Button type="submit" fullWidth variant="contained" color="primary">
-            Submit
-          </Button>
-        </Grid>
-
-        </Grid>
-
-            
-            {/* <input type="text" placeholder='Name of Item' onChange={(e) => setName(e.target.value)}  required/>
-            <input type="text" placeholder='Amount' onChange={(e) => setAmount(e.target.value)} /> */}
-            {/* <input type="text" placeholder='Date' onChange={(e) => setDate(e.target.value)}></input> */}
-            {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DatePicker
-                onChange={(e) => setDate(e)}
-                />
-            </LocalizationProvider>
-            <input type="text" placeholder='Comments' onChange={(e) => setComments(e.target.value)}></input>
-            <Button variant="contained" style={{backgroundColor: '#006769'}} type="submit">Submit</Button>
-            <input type='file' accept='image/*' onChange={handleFileChange} /> */}
-    </Box>
+        </LocalizationProvider>
+      </Grid>
+      {/* Comments TextField */}
+      <Grid item xs={12}>
+      <CustomTextField
+          size='small'
+          label="Comments"
+          value={comments}
+          onChange={(e) => setComments(e.target.value)}
+          multiline // Multiline and rows={5} lets textfield take a bigger space
+          rows={5}
+          fullWidth
+        />
+      </Grid>
+      {/* Tags TextField */}
+      <Grid item xs={12}>
+        <CustomTextField
+          size='small'
+          label='Tags'
+          onChange={(e) => setAmount(e.target.value)}
+          fullWidth
+        />
+      </Grid>
+      <Grid item xs={12}>
+        <Button
+          variant="contained"
+          onClick={handleItemSubmit}
+          fullWidth
+          sx={{
+            backgroundColor: '#FFF3CA', // Submit button background color
+            color: '#000', // Text color black
+            '&:hover': {
+              backgroundColor: '#FFF3CA', // Maintain same color on hover
+            },
+          }}
+        >
+          Submit
+        </Button>
+      </Grid>
+    </Grid>
+  </Box>
   )
 }
