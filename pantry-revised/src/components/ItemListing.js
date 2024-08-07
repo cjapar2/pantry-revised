@@ -30,6 +30,7 @@ export default function ItemListing({item, onEdit}) {
       </div>
       <div className='name'>{item.name}</div>
       <div className='amount'>{item.amount}</div>
+      {/* <div className='unit'>{item.unit}</div> */}
       <div className='date'>{formatDate(item.date)}</div>
       <div className='comments'>{item.comments}</div>
 

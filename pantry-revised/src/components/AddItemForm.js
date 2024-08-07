@@ -16,6 +16,7 @@ export function AddItemForm({ open, handleClose, item }) {
 
   const [name, setName] = useState('');
   const [amount, setAmount] = useState(1);
+  const [unit, setUnit] = useState('');
   const [date, setDate] = useState(new Date());
   const [comments, setComments] = useState('');
   const [imageSrc, setImageSrc] = useState(null);
@@ -56,10 +57,10 @@ export function AddItemForm({ open, handleClose, item }) {
 
   const handleItemSubmit = () => {
     if (item) {
-      updateItem(item.id, { name, amount, date: date.toISOString(), comments, imageSrc });
+      updateItem(item.id, { name, amount, unit, date: date.toISOString(), comments, imageSrc });
     }
     else {
-      addItem(name, amount, date.toISOString(), comments, imageSrc);
+      addItem(name, amount, unit, date.toISOString(), comments, imageSrc);
     }
     handleClose();
   };

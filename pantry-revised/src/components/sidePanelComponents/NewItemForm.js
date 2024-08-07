@@ -1,29 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react'
 import '../../styles/sidePanelStyles/NewItemForm.css'
 import { styled } from '@mui/material/styles';
-import { Button, Grid, Box, TextField, IconButton, Avatar, Input, Select } from '@mui/material'
+import { Button, Grid, Box, TextField, IconButton, Avatar, Input, Select, MenuItem } from '@mui/material'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { parseISO } from 'date-fns';
 import { ItemsContext } from '../contexts/ItemsContext'
-
-const CustomSelect = styled(Select)(({ theme }) => ({
-  backgroundColor: '#568A80',
-  color: 'white',
-  '.MuiOutlinedInput-notchedOutline': {
-    borderColor: 'white',
-  },
-  '&:hover .MuiOutlinedInput-notchedOutline': {
-    borderColor: 'white',
-  },
-  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-    borderColor: 'white',
-  },
-  '.MuiSvgIcon-root': {
-    color: 'white',
-  },
-}));
 
 const CustomDatePickerStyle = {
   textField: {
@@ -88,6 +71,7 @@ export function NewItemForm({item}) {
 
     const [name, setName] = useState('');
     const [amount, setAmount] = useState(1);
+    const [unit, setUnit] = useState('');
     const [date, setDate] = useState(new Date());
     const [comments, setComments] = useState('');
     const [imageSrc, setImageSrc] = useState(null);
@@ -107,6 +91,7 @@ export function NewItemForm({item}) {
         if (item) {
             setName(item.name);
             setAmount(item.amount);
+            setUnit(item.unit);
             setDate(parseISO(item.date));
             setComments(item.comments);
         }
@@ -114,6 +99,7 @@ export function NewItemForm({item}) {
         else {
             setName('');
             setAmount(1);
+            setUnit('');
             setDate(new Date());
             setComments('');
         }
@@ -128,11 +114,13 @@ export function NewItemForm({item}) {
 
       function handleItemSubmit() {
         if (item) {
-          updateItem(item.id, { name, amount, date: date.toISOString(), comments, imageSrc });
+          updateItem(item.id, { name, amount, unit, date: date.toISOString(), comments, imageSrc });
         }
         else {
-          addItem(name, amount, date.toISOString(), comments, imageSrc);
+          addItem(name, amount, unit, date.toISOString(), comments, imageSrc);
         }
+
+        // Reset values
         setName('');
         setAmount(1);
         setDate(new Date());
@@ -160,9 +148,10 @@ export function NewItemForm({item}) {
             size='small'
             label="Item Name"
             value={name}
-            onChange={(e) => setName(e.target.value)}
             className='name-field'
             fullWidth
+            required
+            onChange={(e) => setName(e.target.value)}
           />
         </Grid>
         {/* Amount TextField */}
@@ -172,18 +161,21 @@ export function NewItemForm({item}) {
             label="Amount"
             type="number"
             value={amount}
-            onChange={(e) => setAmount(e.target.value)}
             fullWidth
+            onChange={(e) => setAmount(e.target.value)}
           />
         </Grid>
         {/* Amount Unit TextField */}
         <Grid item xs={8}>
-          <CustomSelect
+          <CustomTextField
             size='small'
             label='Unit'
-            onChange={(e) => setAmount(e.target.value)}
+            select
             fullWidth
-          />
+            onChange={(e) => setUnit(e.target.value)}
+          >
+            <MenuItem value='gallon'>Gallon</MenuItem>
+          </CustomTextField>
         </Grid>
         {/* Date Picker */}
         <Grid item xs={12}>
@@ -200,10 +192,10 @@ export function NewItemForm({item}) {
             size='small'
             label="Comments"
             value={comments}
-            onChange={(e) => setComments(e.target.value)}
             multiline // Multiline and rows={5} lets textfield take a bigger space
             rows={5}
             fullWidth
+            onChange={(e) => setComments(e.target.value)}
           />
         </Grid>
         {/* Tags TextField */}
@@ -211,8 +203,8 @@ export function NewItemForm({item}) {
           <CustomTextField
             size='small'
             label='Tags'
-            onChange={(e) => setAmount(e.target.value)}
             fullWidth
+            onChange={(e) => setAmount(e.target.value)}
           />
         </Grid>
         <Grid item xs={12}>
