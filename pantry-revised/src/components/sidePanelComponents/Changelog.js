@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/Changelog.css'
+import '../../styles/sidePanelStyles/Changelog.css'
 
 export function Changelog() {
   return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/Filters.css';
+import '../../styles/sidePanelStyles/Filters.css';
 
 export function Filters() {
   return (

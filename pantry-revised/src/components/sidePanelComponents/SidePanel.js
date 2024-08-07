@@ -5,10 +5,9 @@ import HistoryOutlinedIcon from '@mui/icons-material/HistoryOutlined';
 import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import { IconButton } from '@mui/material';
-import '../styles/SidePanel.css'
-import { Filters } from './sidePanelPages/Filters';
-import { Changelog } from './sidePanelPages/Changelog';
-import { AddItemForm } from './AddItemForm';
+import '../../styles/sidePanelStyles/SidePanel.css'
+import { Filters } from './Filters';
+import { Changelog } from './Changelog';
 import { NewItemForm } from './NewItemForm';
 
 
@@ -18,17 +17,26 @@ export function SidePanel() {
 
     function togglePanel(feature) {
         setActiveFeature(feature);
-        // If panel isn't open or the feature selected is currently the same feature, then close the panel
-        setPanelOpen(!panelOpen || activeFeature !== feature);
-        // renderContent();
+        // If user clicks same feature while pane lis open, close panel
+        if (feature === activeFeature) {
+            closePanel();
+        }
+        // If user clicks a different feature or panel is closed,
+        // open the panel with the selected feature
+        else {
+            setPanelOpen(true);
+        }
     };
 
     function closePanel() {
+        // Stop rendering feature page and close panel
+        setActiveFeature(null);
         setPanelOpen(false);
     };
 
     function renderContent() {
-        // Switch case to render sidePanel pages depending on what feature user chooses
+        // Switch case to render sidePanel pages depending
+        // on what feature user chooses
         switch (activeFeature) {
             case 'addItemForm':
                 return <NewItemForm />

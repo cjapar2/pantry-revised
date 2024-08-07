@@ -3,7 +3,7 @@ import '../styles/ItemListing.css'
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { IconButton, ButtonGroup, Tooltip } from '@mui/material';
-import { ItemsContext } from './ItemsContext';
+import { ItemsContext } from './contexts/ItemsContext';
 import {format, isToday, isYesterday, parseISO } from 'date-fns';
 
 export default function ItemListing({item, onEdit}) {
@@ -26,7 +26,7 @@ export default function ItemListing({item, onEdit}) {
   return (
     <div className='itemContainer'>
       <div className='imageContainer'>
-        <img src='https://placedog.net/100/100?random' alt={item.name} className='image'/>
+        <img src={item.imageSrc} alt={item.name} className='image'/>
       </div>
       <div className='name'>{item.name}</div>
       <div className='amount'>{item.amount}</div>

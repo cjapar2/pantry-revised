@@ -15,7 +15,7 @@ function ItemsProvider({ children }) {
 
     const d = new Date();
 
-    function addItem(name, amount = 1, date, comments, imageSrc) {
+    function addItem(name, amount = 1, date, comments, imageSrc = 'https://placedog.net/100/100?random') {
         const newItem = {
             id: uuidv4(),
             name,

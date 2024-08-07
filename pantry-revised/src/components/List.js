@@ -7,8 +7,8 @@ import Modal from '@mui/material/Modal';
 import ItemListing from './ItemListing';
 import { Button } from '@mui/material';
 import { ArrowDownward, ArrowUpward, SwapVert } from '@mui/icons-material';
-import { ItemsContext } from'./ItemsContext';
-import { SidePanel } from './SidePanel';
+import { ItemsContext } from'./contexts/ItemsContext';
+import { SidePanel } from './sidePanelComponents/SidePanel';
 // import { LeftDrawer } from './LeftDrawer';
 
 export function List() {
