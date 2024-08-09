@@ -1,6 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { format } from 'date-fns';
 
 const ItemsContext = createContext();
 
@@ -13,9 +12,7 @@ function ItemsProvider({ children }) {
         setItems(storedItems);
     }, []);
 
-    const d = new Date();
-
-    function addItem(name, amount = 1, unit, date, comments, imageSrc = 'https://placedog.net/100/100?random') {
+    function addItem(name, amount = 1, unit, date, comments, imageSrc) {
         const newItem = {
             id: uuidv4(),
             name,

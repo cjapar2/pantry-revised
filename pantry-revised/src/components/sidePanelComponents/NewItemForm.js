@@ -1,12 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react'
 import '../../styles/sidePanelStyles/NewItemForm.css'
 import { styled } from '@mui/material/styles';
-import { Button, Grid, Box, TextField, IconButton, Avatar, Input, Select, MenuItem } from '@mui/material'
+import { Button, Grid, Box, TextField, IconButton, Avatar, Input, Select, MenuItem, Tooltip } from '@mui/material'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { parseISO } from 'date-fns';
 import { ItemsContext } from '../contexts/ItemsContext'
+import defaultItemIcon from '../../assets/default_item_image.png'
 
 const CustomDatePickerStyle = {
   textField: {
@@ -132,15 +133,17 @@ export function NewItemForm({item}) {
       <Grid container spacing={2} className='itemFormGrid' justifyContent="center" alignItems="center">
         {/* Image Picker */}
         <Grid item xs={0}>
+          <Tooltip placement='top' title='Upload Image'>
             <IconButton>
               <Avatar
-                src='https://placedog.net/100/100?random'
+                src={defaultItemIcon}
                 style={{
-                  width: '75px',
-                  height: '75px',
-                }}
-              />
-            </IconButton>
+                  width: '80px',
+                  height: '80px',
+                  borderRadius: '15px',
+                }}></Avatar>
+              </IconButton>
+            </Tooltip>
         </Grid>
         {/* Item Name TextField */}
         <Grid item xs={12}>

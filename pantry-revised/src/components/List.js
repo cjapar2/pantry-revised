@@ -42,7 +42,7 @@ export function List() {
     <div className='ListDashboard'>
     {/* Render SidePanel behind ListContainer */}
     <SidePanel />
-      <div className="ListContainer">
+      <div className="ListContainer" style={{backgroundColor: '#E4EBB1'}}>
         <h1 className="ListTitle">Fridge</h1>
         {/* Button that opens AddItemForm and add items */}
         <FontAwesomeIcon icon={faSquarePlus} size="2xl" className="OpenAddFormBtn"

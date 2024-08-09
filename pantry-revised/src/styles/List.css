@@ -24,7 +24,7 @@
 
 .ListContainer {
     position: absolute;
-    background-color: #E4EBB1;
+    /* background-color: #E4EBB1; */
     min-width: 25rem;
     padding: 40vh 25rem 40vh 25rem;
     /* Ensure List stays in middle of screen */
