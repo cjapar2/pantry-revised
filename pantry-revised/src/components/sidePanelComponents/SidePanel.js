@@ -1,4 +1,4 @@
-import { ButtonGroup, Icon } from '@mui/material';
+import { ButtonGroup } from '@mui/material';
 import React, { useState } from 'react';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import HistoryOutlinedIcon from '@mui/icons-material/HistoryOutlined';

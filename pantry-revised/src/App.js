@@ -4,17 +4,19 @@ import { List } from './components/List';
 import { LeftDrawer } from './components/LeftDrawer';
 import { ListTabs } from './components/ListTabs';
 import { ItemsProvider } from './components/contexts/ItemsContext';
-import { SidePanel } from './components/sidePanelComponents/SidePanel';
+import { ListsProvider } from './components/contexts/ListsContext';
 
 function App() {
   return (
     <div className="App">
       {/* <TopBar /> */}
-      <ListTabs />
+      <ListsProvider>
+        <ListTabs />
+      </ListsProvider>
       <LeftDrawer />
-      <ItemsProvider>
+      {/* <ItemsProvider>
         <List />
-      </ItemsProvider>
+      </ItemsProvider> */}
     </div>
   );
 }

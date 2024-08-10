@@ -9,11 +9,13 @@ import { Button } from '@mui/material';
 import { ArrowDownward, ArrowUpward, SwapVert } from '@mui/icons-material';
 import { ItemsContext } from'./contexts/ItemsContext';
 import { SidePanel } from './sidePanelComponents/SidePanel';
+import { ListsContext } from './contexts/ListsContext';
 // import { LeftDrawer } from './LeftDrawer';
 
 export function List() {
 
   const { items, sortItems, sortOrder } = useContext(ItemsContext);
+  const { lists, activeList } = useContext(ListsContext);
 
   // State to show addItemForm
   const [showAddForm, setShowAddForm] = useState(false);
@@ -37,13 +39,14 @@ export function List() {
     setSelectedItem(null);
   };
 
+  const activeListItems = lists[activeList]?.items || [];
 
   return (
     <div className='ListDashboard'>
     {/* Render SidePanel behind ListContainer */}
     <SidePanel />
       <div className="ListContainer" style={{backgroundColor: '#E4EBB1'}}>
-        <h1 className="ListTitle">Fridge</h1>
+        <h1 className="ListTitle">{lists[activeList]?.name || 'Fridge'}</h1>
         {/* Button that opens AddItemForm and add items */}
         <FontAwesomeIcon icon={faSquarePlus} size="2xl" className="OpenAddFormBtn"
           onClick={() => handleOpenAddForm()}
@@ -79,7 +82,7 @@ export function List() {
         {/* Container that contains item listings */}
         <div className='listingsContainer'>
           {/* Map out the list of itemlistings into individual components */}
-          {items.map((item) =>
+          {activeListItems.map((item) =>
             <ItemListing 
               key={item.id}
               item={item}

@@ -75,7 +75,7 @@ export function NewItemForm({item}) {
     const [unit, setUnit] = useState('');
     const [date, setDate] = useState(new Date());
     const [comments, setComments] = useState('');
-    const [imageSrc, setImageSrc] = useState(null);
+    const [imageSrc, setImageSrc] = useState(defaultItemIcon);
 
     useEffect(() => {
         if (imageSrc) {
@@ -129,7 +129,7 @@ export function NewItemForm({item}) {
       }
 
   return (
-    <Box className='itemFormContainer'>
+    <Box component='form' className='itemFormContainer' onSubmit={handleItemSubmit}>
       <Grid container spacing={2} className='itemFormGrid' justifyContent="center" alignItems="center">
         {/* Image Picker */}
         <Grid item xs={0}>
@@ -212,6 +212,7 @@ export function NewItemForm({item}) {
         </Grid>
         <Grid item xs={12}>
           <Button
+            type='submit'
             variant="contained"
             onClick={handleItemSubmit}
             fullWidth

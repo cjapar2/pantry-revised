@@ -1,14 +1,24 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { ListsContext } from './ListsContext';
 
 const ItemsContext = createContext();
 
 function ItemsProvider({ children }) {
+
+    const { activeList } = useContext(ListsContext);
+    console.log('activeList:', activeList);
+
     const [items, setItems] = useState([]);
     const [sortOrder, setSortOrder] = useState({ key: 'name', direction: 'ascending'});
 
     useEffect(() => {
         const storedItems = JSON.parse(localStorage.getItem('items')) || [];
+        setItems(storedItems);
+    }, []);
+
+    useEffect(() => {
+        const storedItems = JSON.parse(localStorage.getItem('items')) || {};
         setItems(storedItems);
     }, []);
 
@@ -22,7 +32,12 @@ function ItemsProvider({ children }) {
             comments,
             imageSrc,
         };
-        const updatedItems = [...items, newItem];
+        const listId = activeList;
+        console.log('hi');
+        const updatedItems = {
+            ...items,
+            [listId]: [...(items[listId] || []), newItem]
+        };
         setItems(updatedItems);
         localStorage.setItem('items', JSON.stringify(updatedItems));
         console.log('Adding Item');
@@ -30,13 +45,21 @@ function ItemsProvider({ children }) {
     };
 
     function updateItem(id, updatedItem) {
-        const updatedItems = items.map(item => (item.id === id ? { ...item, ...updatedItem } : item));
+        const listId = activeList;
+        const updatedItems = {
+            ...items,
+            [listId]: items[listId].map(item => (item.id === id ? { ...item, ...updatedItem } : item))
+        };
         setItems(updatedItems);
         localStorage.setItem('items', JSON.stringify(updatedItems));
     };
 
     function deleteItem(id) {
-        const updatedItems = items.filter(item => item.id !== id);
+        const listId = activeList;
+        const updatedItems = {
+            ...items,
+            [listId]: items[listId].filter(item => item.id !== id)
+        };
         setItems(updatedItems);
         localStorage.setItem('items', JSON.stringify(updatedItems));
         console.log('Deleting item ', id);
@@ -44,8 +67,9 @@ function ItemsProvider({ children }) {
     };
 
     function sortItems(key, direction = 'ascending') {
-        setSortOrder({key, direction});
-        const sortedItems = [...items].sort((a, b) => {
+        setSortOrder({ key, direction });
+        const listId = activeList;
+        const sortedItems = [...(items[listId] || [])].sort((a, b) => {
             if (a[key] < b[key]) {
                 return direction === 'ascending' ? -1 : 1;
             }
@@ -54,11 +78,14 @@ function ItemsProvider({ children }) {
             }
             return 0;
         });
-        setItems(sortedItems);
+        setItems({
+            ...items,
+            [listId]: sortedItems
+        });
     }
 
     return (
-        <ItemsContext.Provider value={{ items, addItem, updateItem, deleteItem, sortItems, sortOrder }}>
+        <ItemsContext.Provider value={{ items: items[activeList] || [], addItem, updateItem, deleteItem, sortItems, sortOrder }}>
             {children}
         </ItemsContext.Provider>
     );

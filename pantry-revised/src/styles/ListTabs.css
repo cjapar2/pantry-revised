@@ -1,4 +1,6 @@
 .TabGroup {
     position: absolute;
+    padding: 3rem;
+    top: 0rem;
     background-color: #E4EBB1;
 }
