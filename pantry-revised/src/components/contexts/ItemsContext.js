@@ -6,21 +6,17 @@ const ItemsContext = createContext();
 
 function ItemsProvider({ children }) {
 
-    const { activeList } = useContext(ListsContext);
+    const { lists, activeList } = useContext(ListsContext);
     console.log('activeList:', activeList);
 
     const [items, setItems] = useState([]);
     const [sortOrder, setSortOrder] = useState({ key: 'name', direction: 'ascending'});
 
-    useEffect(() => {
-        const storedItems = JSON.parse(localStorage.getItem('items')) || [];
-        setItems(storedItems);
-    }, []);
-
-    useEffect(() => {
-        const storedItems = JSON.parse(localStorage.getItem('items')) || {};
-        setItems(storedItems);
-    }, []);
+    // useEffect(() => {
+    //     const storedItems = JSON.parse(localStorage.getItem('items')) || [];
+    //     setItems(storedItems);
+    //     console.log(storedItems);
+    // }, []);
 
     function addItem(name, amount = 1, unit, date, comments, imageSrc) {
         const newItem = {
@@ -31,18 +27,16 @@ function ItemsProvider({ children }) {
             date,
             comments,
             imageSrc,
+            listId: lists[activeList].id,
         };
-        const listId = activeList.id;
-        console.log('activeList in addItem:', activeList);
-        const updatedItems = {
-            ...items,
-            [listId]: [...(items[listId] || []), newItem]
-        };
-        console.log('updatedItems:', updatedItems);
+        const updatedItems = [...items, newItem];
+        console.log('items b4 setItems', items);
         setItems(updatedItems);
+        console.log('items after setItems', items);
+        // console.log('updatedItems:', updatedItems);
         localStorage.setItem('items', JSON.stringify(updatedItems));
-        console.log('Adding Item');
-        console.log('Resulting Items size:', updatedItems.length);
+        // console.log('Adding Item', localStorage.getItem('items'), items);
+        // console.log('Resulting upadtedItems', updatedItems);
     };
 
     function updateItem(id, updatedItem) {

@@ -12,10 +12,12 @@ import { SidePanel } from './sidePanelComponents/SidePanel';
 import { ListsContext } from './contexts/ListsContext';
 // import { LeftDrawer } from './LeftDrawer';
 
-export function List() {
+export function List({ list, listId}) {
 
   const { items, sortItems, sortOrder } = useContext(ItemsContext);
   const { lists, activeList } = useContext(ListsContext);
+  console.log('item.listid:', items, 'listId:', listId);
+  console.log('filter:', items);
 
   // State to show addItemForm
   const [showAddForm, setShowAddForm] = useState(false);
@@ -82,13 +84,9 @@ export function List() {
         {/* Container that contains item listings */}
         <div className='listingsContainer'>
           {/* Map out the list of itemlistings into individual components */}
-          {activeListItems.map((item) =>
-            <ItemListing 
-              key={item.id}
-              item={item}
-              onEdit={() => handleOpenAddForm(item)}
-            />
-          )}
+          {items.filter(item => item.listId === listId).map((item) => (
+            <ItemListing key={item.id} item={item} onEdit={() => handleOpenAddForm(item)}></ItemListing>
+          ))}
         </div>
       </div>
     </div>

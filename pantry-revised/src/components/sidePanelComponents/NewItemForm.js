@@ -177,7 +177,7 @@ export function NewItemForm({item}) {
             fullWidth
             onChange={(e) => setUnit(e.target.value)}
           >
-            <MenuItem value='gallon'>Gallon</MenuItem>
+            <MenuItem value='Gallon'>Gallon</MenuItem>
           </CustomTextField>
         </Grid>
         {/* Date Picker */}

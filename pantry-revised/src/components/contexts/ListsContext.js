@@ -6,7 +6,7 @@ const ListsContext = createContext();
 
 function ListsProvider({children}) {
     const [lists, setLists] = useState([]);
-    const [activeList, setActiveList] = useState(lists[0]?.id || null); // Default to first tab of lists
+    const [activeList, setActiveList] = useState(0); // Default to first tab of lists
 
     useEffect(() => {
         const storedLists = JSON.parse(localStorage.getItem('lists')) || [];
@@ -15,14 +15,15 @@ function ListsProvider({children}) {
             const defaultList = {
                 id: uuidv4(),
                 name: 'Default List',
+                units: ['Gallon'],
                 items: []
             };
             setLists([defaultList]);
             localStorage.setItem('lists', JSON.stringify([defaultList]));
-            setActiveList(storedLists[0]?.id || null); // If it exists, set active tab to first list's UUID
+            setActiveList(0); // If it exists, set active tab to first list's UUID
         } else {
             setLists(storedLists);
-            setActiveList(storedLists[0]?.id || null); // If it exists, set active tab to first list's UUID
+            setActiveList(0); // If it exists, set active tab to first list's UUID
         }
     }, []);
 
@@ -33,9 +34,6 @@ function ListsProvider({children}) {
         }
     }, []);
 
-
-    console.log('activeList:', activeList, lists);
-
     useEffect(() =>{
         const storedLists = JSON.parse(localStorage.getItem('lists')) || [];
         setLists(storedLists);
@@ -43,10 +41,11 @@ function ListsProvider({children}) {
 
     
 
-    function addList(name, items) {
+    function addList(name, units, items) {
         const newList = {
             id: uuidv4(),
             name,
+            units,
             items,
         };
         const updatedLists = [...lists, newList];
