@@ -1,6 +1,10 @@
-.TabGroup {
+.Dashboard {
     position: absolute;
-    padding: 3rem;
+    background-color: blue;
     top: 0rem;
-    background-color: #E4EBB1;
+}
+
+.ListTabs {
+    position: absolute;
+    top: 6rem;
 }

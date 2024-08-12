@@ -10,10 +10,10 @@ function App() {
   return (
     <div className="App">
       {/* <TopBar /> */}
+      <LeftDrawer />
       <ListsProvider>
         <ListTabs />
       </ListsProvider>
-      <LeftDrawer />
       {/* <ItemsProvider>
         <List />
       </ItemsProvider> */}

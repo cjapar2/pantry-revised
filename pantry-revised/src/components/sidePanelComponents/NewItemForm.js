@@ -77,15 +77,15 @@ export function NewItemForm({item}) {
     const [comments, setComments] = useState('');
     const [imageSrc, setImageSrc] = useState(defaultItemIcon);
 
-    useEffect(() => {
-        if (imageSrc) {
-          const reader = new FileReader();
-          reader.onloaded = () => {
-            setImageSrc(reader.result);
-          };
-          reader.readAsDataURL(imageSrc);
-        } 
-      }, [imageSrc]);
+    // useEffect(() => {
+    //     if (imageSrc) {
+    //       const reader = new FileReader();
+    //       reader.onloaded = () => {
+    //         setImageSrc(reader.result);
+    //       };
+    //       reader.readAsDataURL(imageSrc);
+    //     } 
+    //   }, [imageSrc]);
 
       useEffect(() => {
         // if we edit an item -> item exists -> we're editing so autofill form with item's values

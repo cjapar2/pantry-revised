@@ -28,8 +28,8 @@
     min-width: 25rem;
     padding: 40vh 25rem 40vh 25rem;
     /* Ensure List stays in middle of screen */
-    top: 50%;
-    transform: translateY(-50%);
+    top: 70%;
+    transform: translateY(-70%);
     border-radius: 0px 15px 15px 15px;
     overflow-y: auto;
     box-sizing: border-box;

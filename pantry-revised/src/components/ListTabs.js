@@ -16,19 +16,12 @@ export function ListTabs() {
   }
 
   return (
-    <div >
-      <Box className='TabGroup'>
-        <Tabs value={activeList} onChange={handleTabChange} >
-          {lists.map((list, index) => (
-            <Tab key={list.id} label={list.name} />
-          ))}
-        </Tabs>
+      <Box className='Dashboard'>
         {lists.length > 0 && (
           <ItemsProvider items={lists[activeList].items}>
             <List />
           </ItemsProvider>
         )}
       </Box>
-    </div>
   )
 }
