@@ -32,16 +32,17 @@ function ItemsProvider({ children }) {
             comments,
             imageSrc,
         };
-        const listId = activeList;
-        console.log('hi');
+        const listId = activeList.id;
+        console.log('activeList in addItem:', activeList);
         const updatedItems = {
             ...items,
             [listId]: [...(items[listId] || []), newItem]
         };
+        console.log('updatedItems:', updatedItems);
         setItems(updatedItems);
         localStorage.setItem('items', JSON.stringify(updatedItems));
         console.log('Adding Item');
-        console.log('ResultingItems size:', updatedItems.length);
+        console.log('Resulting Items size:', updatedItems.length);
     };
 
     function updateItem(id, updatedItem) {

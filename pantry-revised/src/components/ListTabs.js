@@ -14,11 +14,12 @@ export function ListTabs() {
   function handleTabChange(event, newIndex) {
     switchList(newIndex);
   }
+  console.log(activeList);
 
   return (
       <Box className='Dashboard'>
         {lists.length > 0 && (
-          <ItemsProvider items={lists[activeList].items}>
+          <ItemsProvider items={activeList.items}>
             <List />
           </ItemsProvider>
         )}
