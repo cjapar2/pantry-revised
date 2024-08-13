@@ -6,30 +6,35 @@ const ListsContext = createContext();
 
 function ListsProvider({children}) {
     const [lists, setLists] = useState([]);
-    const [activeList, setActiveList] = useState(0); // Default to first tab of lists
+    const [activeListIndex, setActiveList] = useState(0); // Default to first tab of lists
 
+    // Check on every reload if a list exists, if not, create a default list
     useEffect(() => {
         const storedLists = JSON.parse(localStorage.getItem('lists')) || [];
         // Add a default list if none exist
+        console.log('storedLists', storedLists);   
         if (storedLists.length === 0) {
+            console.log('no lists detected');
             const defaultList = {
                 id: uuidv4(),
                 name: 'Default List',
-                units: ['Gallon'],
+                units: ['', 'Gallon', 'Bag'],
                 items: []
             };
             setLists([defaultList]);
             localStorage.setItem('lists', JSON.stringify([defaultList]));
             setActiveList(0); // If it exists, set active tab to first list's UUID
         } else {
+            console.log('yes lists detected');
             setLists(storedLists);
+            console.log('storedLists-:', storedLists)
             setActiveList(0); // If it exists, set active tab to first list's UUID
         }
     }, []);
 
     useEffect(() => {
         // Ensure activeTab is within bounds
-        if (lists.length > 0 && activeList >= lists.length) {
+        if (lists.length > 0 && activeListIndex >= lists.length) {
             setActiveList(0);
         }
     }, []);
@@ -61,8 +66,12 @@ function ListsProvider({children}) {
     }
 
     function updateList(id, updatedList) {
-        const updatedLists = lists.map(list => (list.id === id ? {...lists, ...updatedList } : list));
+        // 
+        const updatedLists = lists.map(list => (list.id === id ? updatedList : list));
+        console.log(updatedLists);
+        // Set the updated to lists to the new list of lists
         setLists(updatedLists);
+        // Store the new list of lists to localStorage
         localStorage.setItem('lists', JSON.stringify(updatedLists));
     }
 
@@ -71,7 +80,7 @@ function ListsProvider({children}) {
     }
 
     return (
-        <ListsContext.Provider value={{ lists, activeList, addList, deleteList, updateList, switchList }}>
+        <ListsContext.Provider value={{ lists, activeListIndex, addList, deleteList, updateList, switchList }}>
             {children}
         </ListsContext.Provider>
     )

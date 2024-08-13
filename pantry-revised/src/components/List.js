@@ -15,9 +15,7 @@ import { ListsContext } from './contexts/ListsContext';
 export function List({ list, listId}) {
 
   const { items, sortItems, sortOrder } = useContext(ItemsContext);
-  const { lists, activeList } = useContext(ListsContext);
-  console.log('item.listid:', items, 'listId:', listId);
-  console.log('items:', items);
+  const { lists, activeListIndex } = useContext(ListsContext);
 
   // State to show addItemForm
   const [showAddForm, setShowAddForm] = useState(false);
@@ -41,14 +39,14 @@ export function List({ list, listId}) {
     setSelectedItem(null);
   };
 
-  const activeListItems = lists[activeList]?.items || [];
+  const activeListItems = lists[activeListIndex]?.items || [];
 
   return (
     <div className='ListDashboard'>
     {/* Render SidePanel behind ListContainer */}
     <SidePanel />
       <div className="ListContainer" style={{backgroundColor: '#E4EBB1'}}>
-        <h1 className="ListTitle">{lists[activeList]?.name || 'Fridge'}</h1>
+        <h1 className="ListTitle">{lists[activeListIndex]?.name || 'No List Detected?'}</h1>
         {/* Button that opens AddItemForm and add items */}
         <FontAwesomeIcon icon={faSquarePlus} size="2xl" className="OpenAddFormBtn"
           onClick={() => handleOpenAddForm()}

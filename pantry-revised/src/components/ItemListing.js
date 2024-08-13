@@ -9,7 +9,6 @@ import {format, isToday, isYesterday, parseISO } from 'date-fns';
 export default function ItemListing({item, onEdit}) {
   
   const { deleteItem } = useContext(ItemsContext);
-  console.log('item in itemlisting.js:', item)
   
   function formatDate(dateString) {
     console.log('d:', dateString);

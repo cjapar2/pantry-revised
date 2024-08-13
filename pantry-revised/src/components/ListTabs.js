@@ -7,20 +7,17 @@ import { ItemsProvider } from './contexts/ItemsContext';
 
 export function ListTabs() {
 
-  const { lists, activeList, switchList} = useContext(ListsContext);
-
-  console.log('activeList:', activeList, lists);
+  const { lists, activeListIndex, switchList} = useContext(ListsContext);
 
   function handleTabChange(event, newIndex) {
     switchList(newIndex);
   }
 
-
   return (
       <Box className='Dashboard'>
         {lists.length > 0 && (
-          <ItemsProvider items={activeList.items}>
-            <List list={lists[activeList]} listId={lists[activeList].id}/>
+          <ItemsProvider items={activeListIndex.items}>
+            <List list={lists[activeListIndex]} listId={lists[activeListIndex].id}/>
           </ItemsProvider>
         )}
       </Box>

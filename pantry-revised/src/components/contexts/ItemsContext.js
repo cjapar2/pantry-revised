@@ -6,17 +6,19 @@ const ItemsContext = createContext();
 
 function ItemsProvider({ children }) {
 
-    const { lists, activeList } = useContext(ListsContext);
-    console.log('activeList:', activeList);
+    // Use ListsContext to apply listId to each item in order to sort them
+    const { lists, activeListIndex, updateList } = useContext(ListsContext);
 
+    // List of all items
     const [items, setItems] = useState([]);
     const [sortOrder, setSortOrder] = useState({ key: 'name', direction: 'ascending'});
 
-    // useEffect(() => {
-    //     const storedItems = JSON.parse(localStorage.getItem('items')) || [];
-    //     setItems(storedItems);
-    //     console.log(storedItems);
-    // }, []);
+    // Check on every reload if items in localStoaage exist
+    useEffect(() => {
+        const storedItems = JSON.parse(localStorage.getItem('items')) || [];
+        setItems(storedItems);
+        console.log(storedItems);
+    }, []);
 
     function addItem(name, amount = 1, unit, date, comments, imageSrc) {
         const newItem = {
@@ -27,34 +29,34 @@ function ItemsProvider({ children }) {
             date,
             comments,
             imageSrc,
-            listId: lists[activeList].id,
+            listId: lists[activeListIndex].id,
         };
+        // Get list being updated
+        const listToUpdate = lists[activeListIndex];
+        // Copy of items list with new item
         const updatedItems = [...items, newItem];
-        console.log('items b4 setItems', items);
+        // Copy of list object but with new item
+        const updatedList = {...listToUpdate, items: updatedItems};
+        // ListsContext function updateList() to store the new updated list to localStorage
+        console.log('updatedList in addItem:', listToUpdate)
+        updateList(listToUpdate.id, updatedList);
+        // Set the items state to the new updated items list
         setItems(updatedItems);
-        console.log('items after setItems', items);
-        // console.log('updatedItems:', updatedItems);
+        // Store the new items list to localStorage
         localStorage.setItem('items', JSON.stringify(updatedItems));
-        // console.log('Adding Item', localStorage.getItem('items'), items);
-        // console.log('Resulting upadtedItems', updatedItems);
+        console.log('Adding Item');
+        console.log('Resulting upadtedItems', updatedItems);
     };
 
     function updateItem(id, updatedItem) {
-        const listId = activeList;
-        const updatedItems = {
-            ...items,
-            [listId]: items[listId].map(item => (item.id === id ? { ...item, ...updatedItem } : item))
-        };
+        const updatedItems = items.map(item => (item.id === id ? { ...item, ...updatedItem } : item));
         setItems(updatedItems);
         localStorage.setItem('items', JSON.stringify(updatedItems));
     };
 
     function deleteItem(id) {
-        const listId = activeList;
-        const updatedItems = {
-            ...items,
-            [listId]: items[listId].filter(item => item.id !== id)
-        };
+        const listId = activeListIndex;
+        const updatedItems = items.filter(item => item.id !== id);
         setItems(updatedItems);
         localStorage.setItem('items', JSON.stringify(updatedItems));
         console.log('Deleting item ', id);
@@ -63,7 +65,7 @@ function ItemsProvider({ children }) {
 
     function sortItems(key, direction = 'ascending') {
         setSortOrder({ key, direction });
-        const listId = activeList;
+        const listId = activeListIndex;
         const sortedItems = [...(items[listId] || [])].sort((a, b) => {
             if (a[key] < b[key]) {
                 return direction === 'ascending' ? -1 : 1;

@@ -8,6 +8,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers';
 import { parseISO } from 'date-fns';
 import { ItemsContext } from '../contexts/ItemsContext'
 import defaultItemIcon from '../../assets/default_item_image.png'
+import { ListsContext } from '../contexts/ListsContext';
 
 const CustomDatePickerStyle = {
   textField: {
@@ -69,6 +70,7 @@ const CustomTextField = styled(TextField)({
 export function NewItemForm({item}) {
 
     const { addItem, updateItem } = useContext(ItemsContext);
+    const { lists, activeListIndex } = useContext(ListsContext);
 
     const [name, setName] = useState('');
     const [amount, setAmount] = useState(1);
@@ -175,9 +177,12 @@ export function NewItemForm({item}) {
             label='Unit'
             select
             fullWidth
+            value={unit}
             onChange={(e) => setUnit(e.target.value)}
           >
-            <MenuItem value='Gallon'>Gallon</MenuItem>
+            {lists[activeListIndex].units.map((unitOption) => (
+              <MenuItem value={unitOption}>{unitOption}</MenuItem>
+            ))};
           </CustomTextField>
         </Grid>
         {/* Date Picker */}
