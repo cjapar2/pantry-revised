@@ -80,7 +80,7 @@ function ItemsProvider({ children }) {
     }
 
     return (
-        <ItemsContext.Provider value={{ items: items[activeList] || [], addItem, updateItem, deleteItem, sortItems, sortOrder }}>
+        <ItemsContext.Provider value={{ items, addItem, updateItem, deleteItem, sortItems, sortOrder }}>
             {children}
         </ItemsContext.Provider>
     );

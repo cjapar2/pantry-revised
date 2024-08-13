@@ -17,7 +17,7 @@ export function List({ list, listId}) {
   const { items, sortItems, sortOrder } = useContext(ItemsContext);
   const { lists, activeList } = useContext(ListsContext);
   console.log('item.listid:', items, 'listId:', listId);
-  console.log('filter:', items);
+  console.log('items:', items);
 
   // State to show addItemForm
   const [showAddForm, setShowAddForm] = useState(false);
