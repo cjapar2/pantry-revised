@@ -1,0 +1,10 @@
+.Dashboard {
+    position: absolute;
+    background-color: blue;
+    top: 0rem;
+}
+
+.ListTabs {
+    position: absolute;
+    top: 6rem;
+}

@@ -1,0 +1,9 @@
+.filtersContent {
+    position: absolute;
+    width: 18rem;
+    height: 34rem;
+    top: 1rem;
+    left: 1rem;
+    border-radius: 0px 15px 15px 0px;
+    background-color: pink;
+}

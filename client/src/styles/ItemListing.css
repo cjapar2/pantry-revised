@@ -1,0 +1,123 @@
+.itemContainer {
+    position: relative;
+    /* display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-line-clamp: 3;
+            line-clamp: 3; */
+    display: flex;
+    margin: 0rem -24rem;
+    padding: 3rem;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    background: #FFF3CA;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    /* overflow: hidden; */
+}
+
+/* On hover of itemListing, increase bottom shadow */
+.itemContainer:hover {
+    box-shadow: rgba(0, 0, 0, 0.72) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.itemContainer > div {
+    position: absolute;
+}
+
+.imageContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* background-color: blue; */
+    padding: 3rem;
+    border-radius: 15px 0px 0px 15px;
+    overflow: hidden;
+}
+
+.image {
+    position: absolute;
+    left: 0rem;
+    top: 0rem;
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+    object-fit: cover;
+}
+
+.name {
+    /* Restrict name to one line */
+    white-space: nowrap;
+    /* Hide text after width is 10rem */
+    max-width: 10rem;
+    /* Hide overflow with ellipsis */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Positioning */
+    top: 1rem;
+    left: 7rem;
+    /* Font size */
+    font-size: 1.5rem;
+}
+
+.date {
+    top: 3.8em;
+    left: 7rem;
+    font-size: 0.8rem;
+}
+
+.amount {
+    color: black;
+    font-size: 1.2rem;
+    top: 1.3rem;
+    left: 20rem;
+}
+
+.comments {
+    /* Restrict text into two lines */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 2;
+    /* Hide overflow with ellipsis */
+    overflow: hidden;
+    /* Restrict width of each line to 11rem */
+    width: 11rem;
+    /* Positioning */
+    top: 1.5rem;
+    right: 0.5rem;
+    /* Text Color and Font Size */
+    color: black;
+    font-size: 0.8rem;
+    /* background-color: cyan; */
+}
+
+.action-buttons {
+    position: absolute;
+    right: 1rem;
+    top: -0.5rem;
+    background-color: #367c5a;
+    opacity: 0;
+    padding: 0.1rem;
+    transition: opacity 0.3s;
+}
+
+/* On hover of itemListing, increase opacity of delete button */
+.itemContainer:hover .action-buttons {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.delete-button.MuiIconButton-root {
+    /* Positioning */
+    /* background-color: #f36464; */
+    border-radius: 0.3rem;
+    color: #b8c4ac;
+    opacity: 1;
+}
+
+.edit-button.MuiIconButton-root {
+    /* Positioning */
+    /* background-color: #6cfa97;   */
+    border-radius: 0.3rem;
+    color: #b8c4ac;
+    opacity: 1;
+}
