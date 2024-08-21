@@ -12,6 +12,13 @@ app.use(express.json());
 app.post('/lists', async(req, res) => {
     try {
         console.log(req.body);
+        const { name } = req.body;
+        const newList =  await pool.query(
+            "INSERT INTO lists (name) VALUES($1)",
+            [name]
+        );
+
+        res.json(newList);
     } catch (err) {
         console.error(err.message);
     }

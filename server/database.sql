@@ -1,7 +1,7 @@
 CREATE DATABASE pantry;
 
 CREATE TABLE lists(
-    list_id UUID PRIMARY KEY,
+    list_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     name VARCHAR(255)
 );
 
