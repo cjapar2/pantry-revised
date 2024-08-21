@@ -14,7 +14,7 @@ CREATE TABLE units(
 CREATE TABLE items(
     item_id UUID PRIMARY KEY,
     name VARCHAR(255),
-    amount INT,
+    amount INT DEFAULT 1,
     unit VARCHAR(255),
     date VARCHAR(255),
     comments VARCHAR(255),

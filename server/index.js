@@ -12,10 +12,10 @@ app.use(express.json());
 app.post('/lists', async(req, res) => {
     try {
         console.log(req.body);
-        const { name } = req.body;
+        const { name, amount, unit, date, comments, imageSrc, listId } = req.body;
         const newList =  await pool.query(
-            "INSERT INTO lists (name) VALUES($1) RETURNING *",
-            [name]
+            "INSERT INTO lists (name) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+            [name, amount, unit, date, comments, imageSrc, listId]
         );
 
         res.json(newList.rows[0]);
@@ -53,3 +53,19 @@ app.put('/lists/:list_id', async(req, res) => {
 app.listen(5000, () => {
     console.log('Server has started on port 5000.');
 });
+
+// create an item
+app.post('/items/:list_id', async(req, res) => {
+    try {
+        console.log(req.body);
+        const { name } = req.body;
+        const newList =  await pool.query(
+            "INSERT INTO lists (name) VALUES($1) RETURNING *",
+            [name]
+        );
+
+        res.json(newList.rows[0]);
+    } catch (err) {
+        console.error(err.message);
+    }
+})
