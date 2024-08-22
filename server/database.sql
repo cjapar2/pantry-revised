@@ -12,7 +12,7 @@ CREATE TABLE units(
 );
 
 CREATE TABLE items(
-    item_id UUID PRIMARY KEY,
+    item_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     name VARCHAR(255),
     amount INT DEFAULT 1,
     unit VARCHAR(255),
