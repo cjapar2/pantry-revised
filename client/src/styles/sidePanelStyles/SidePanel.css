@@ -6,7 +6,7 @@
     /* Using % prevents from drastically changing position when expanding resolution */
     top: 15%;
     left: 115px;
-    /* Use vh to scale with resolution/size of screen */
+    /* Use vh to scale with resolution/size of screen EDIT: Nevermind, rem works better.*/
     padding: 18rem 10rem;
     width: 18rem;
     height: 20rem;

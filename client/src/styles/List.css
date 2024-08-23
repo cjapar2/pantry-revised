@@ -15,7 +15,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    /* background-color: blue; */
+    /* background-color: red; */
 }
 
 /* .listSideBar {
@@ -31,6 +31,7 @@
     top: 70%;
     transform: translateY(-70%);
     border-radius: 0px 15px 15px 15px;
+    /* Makes it so that itemlistings overflow are hidden */
     overflow-y: auto;
     box-sizing: border-box;
     scrollbar-width: none;

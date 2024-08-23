@@ -1,10 +1,12 @@
-.Dashboard {
+.TabDashboard {
     position: absolute;
-    background-color: blue;
+    height: 100%;
     top: 0rem;
 }
 
-.ListTabs {
+.TabContainer {
     position: absolute;
-    top: 6rem;
+    background-color: lightblue;
+    top: 5rem;
+    right: 6rem;
 }

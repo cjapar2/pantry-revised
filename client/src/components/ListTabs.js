@@ -14,7 +14,13 @@ export function ListTabs() {
   }
 
   return (
-      <Box className='Dashboard'>
+      <Box className='TabDashboard'>
+        <Tabs className='TabContainer'>
+          <Tab label="Item One" />
+          <Tab label="Item Two" />
+          <Tab label="Item Three" />
+        </Tabs>
+
         {lists.length > 0 && (
           <ItemsProvider items={activeListIndex.items}>
             <List list={lists[activeListIndex]} listId={lists[activeListIndex].id}/>
