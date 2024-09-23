@@ -16,6 +16,9 @@
     align-items: center;
     height: 100vh;
     /* background-color: red; */
+    top: 0rem;
+    right: 50%;
+    transform: translateX(-50%);
 }
 
 /* .listSideBar {
@@ -25,11 +28,11 @@
 .ListContainer {
     position: absolute;
     /* background-color: #E4EBB1; */
-    min-width: 25rem;
+    /* min-width: 25rem; */
     padding: 40vh 25rem 40vh 25rem;
     /* Ensure List stays in middle of screen */
-    top: 70%;
-    transform: translateY(-70%);
+    /* top: 5%; */
+    /* transform: translateY(-70%); */
     border-radius: 0px 15px 15px 15px;
     /* Makes it so that itemlistings overflow are hidden */
     overflow-y: auto;

@@ -1,12 +1,19 @@
-.TabDashboard {
+.tabDashboard {
     position: absolute;
-    height: 100%;
-    top: 0rem;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    /* background-color: green; */
 }
 
-.TabContainer {
-    position: absolute;
-    background-color: lightblue;
-    top: 5rem;
-    right: 6rem;
+.tabContent {
+    position: relative;
+    background-color: beige;
+
 }
+
+/* .tabContent {
+    position: absolute;
+    background-color: purple;
+    top: 10%;
+} */

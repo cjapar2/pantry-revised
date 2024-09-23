@@ -14,18 +14,28 @@ export function ListTabs() {
   }
 
   return (
-      <Box className='TabDashboard'>
-        <Tabs className='TabContainer'>
-          <Tab label="Item One" />
-          <Tab label="Item Two" />
-          <Tab label="Item Three" />
-        </Tabs>
+      <div>
+        <div className='tabDashboard'>
+          <Tabs
+            sx={{
+              position: 'relative',
+              top: '3rem',
+              '& button': {
+                backgroundColor: 'beige',
+                borderRadius: '15px 15px 0px 0px',}
+            }}
+          >
+            <Tab label="Default List" />
+            <Tab label="List #2" />
+            <Tab label="List #3" />
+          </Tabs>
+        </div>
 
         {lists.length > 0 && (
           <ItemsProvider items={activeListIndex.items}>
             <List list={lists[activeListIndex]} listId={lists[activeListIndex].id}/>
           </ItemsProvider>
         )}
-      </Box>
+      </div>
   )
 }
