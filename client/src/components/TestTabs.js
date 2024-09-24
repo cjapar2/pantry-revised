@@ -12,6 +12,7 @@ export function TestTabs() {
   function handleTabChange(event, newIndex) {
     switchList(newIndex);
   }
+  console.log('lists:', lists);
 
   return (
     <div className='testTabContainer'>
@@ -23,11 +24,13 @@ export function TestTabs() {
                 borderRadius: '15px 15px 0px 0px',
                 marginRight: '8px',
                 fontFamily: 'McLaren',
+                textTransform: 'none',
+                width: '20px',
             }
             }}>
-              <Tab label='list 1'>List 1</Tab>
-              <Tab label='list 2'>List 2</Tab>
-              <Tab label='list 3'>List 3</Tab>
+              <Tab label='List 1'>List 1</Tab>
+              <Tab label='List 2'>List 2</Tab>
+              <Tab label='List 3'>List 3</Tab>
             </Tabs>
           </div>
       </div>

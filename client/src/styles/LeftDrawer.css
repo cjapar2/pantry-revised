@@ -11,7 +11,7 @@
     /* Positioning */
     position: absolute;
     display: flex;
-    padding: 30vh 2vw;
+    padding: 25vh 1vw;
     background-color: #2C664A;
     border-radius: 0px 15px 15px 0px;
     left: 0rem; /* Stick to the left edge */
