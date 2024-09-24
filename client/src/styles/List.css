@@ -3,6 +3,11 @@
     src: url('../../public/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'McLaren';
+    src: url('../../public/McLaren-Regular.ttf') format('truetype');
+}
+
 * {
     box-sizing: border-box;
 }
@@ -46,9 +51,10 @@
 }
 
 .ListTitle {
-    font-family: "Playfair Display";
+    font-family: "McLaren";
     position: absolute;
     font-size: 2rem;
+    font-weight: 1rem;
     top: 0rem;
     left: 2rem;
 }
@@ -114,4 +120,10 @@
     background-color: cyan;
     /* padding: 40vh 25rem 40vh 25rem; */
     }
+}
+
+.tabContainer {
+    position: absolute;
+    left: 0rem;
+    top: 1rem;
 }

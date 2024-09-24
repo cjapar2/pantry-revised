@@ -1,11 +1,16 @@
 import React from 'react'
 import '../styles/LeftDrawer.css'
-import { Paper } from '@mui/material'
+import { ButtonGroup, IconButton, Paper } from '@mui/material'
+import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 
 export function LeftDrawer() {
   return (
     <div className='DrawerContainer'>
-      test
+      <ButtonGroup>
+        <IconButton >
+            <PlaylistAddIcon />
+        </IconButton>
+      </ButtonGroup>
     </div>  
   )
 }

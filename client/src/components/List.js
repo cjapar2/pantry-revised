@@ -3,14 +3,13 @@ import '../styles/List.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquarePlus } from '@fortawesome/free-regular-svg-icons';
 import { AddItemForm } from './AddItemForm';
-import Modal from '@mui/material/Modal';
 import ItemListing from './ItemListing';
-import { Button } from '@mui/material';
+import { Button, Tab, Tabs } from '@mui/material';
 import { ArrowDownward, ArrowUpward, SwapVert } from '@mui/icons-material';
 import { ItemsContext } from'./contexts/ItemsContext';
 import { SidePanel } from './sidePanelComponents/SidePanel';
 import { ListsContext } from './contexts/ListsContext';
-// import { LeftDrawer } from './LeftDrawer';
+import { TestTabs } from './TestTabs';
 
 export function List({ list, listId}) {
 
@@ -43,6 +42,7 @@ export function List({ list, listId}) {
 
   return (
     <div className='ListDashboard'>
+    <TestTabs />
     {/* Render SidePanel behind ListContainer */}
     <SidePanel />
       <div className="ListContainer" style={{backgroundColor: '#E4EBB1'}}>

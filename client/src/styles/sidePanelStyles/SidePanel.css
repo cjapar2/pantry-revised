@@ -8,12 +8,13 @@
     left: 115px;
     /* Use vh to scale with resolution/size of screen EDIT: Nevermind, rem works better.*/
     padding: 18rem 10rem;
-    width: 18rem;
-    height: 20rem;
+    /* Not sure why I'm using width/height here? */
+    /* width: 18rem;
+    height: 20rem; */
     border-radius: 0px 15px 15px 0px;
     /* Transition animation when side panel slides out */
     transition: left 0.3s ease-in-out;
-    /* background-color: mediumturquoise; */
+    background-color: mediumturquoise;
 }
 
 /* When a button on the buttonGroup is clicked, move sidePanel to the right */

@@ -1,19 +1,5 @@
 .tabDashboard {
-    position: absolute;
-    top: 0%;
-    left: 50%;
-    transform: translateX(-50%);
-    /* background-color: green; */
 }
 
-.tabContent {
-    position: relative;
-    background-color: beige;
-
+.tabsContainer {
 }
-
-/* .tabContent {
-    position: absolute;
-    background-color: purple;
-    top: 10%;
-} */

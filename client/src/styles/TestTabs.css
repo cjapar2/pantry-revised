@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'McLaren';
+    src: url('../../public/McLaren-Regular.ttf') format('truetype');
+}
+
+.testTabContainer {
+    position: absolute;
+    display: flex;
+    background-color: blueviolet;
+    padding: 40vh 25rem 40vh 25rem;
+}
+
+.testTabs {
+    position: absolute;
+    top: -3rem;
+    left: 0;
+}

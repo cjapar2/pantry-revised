@@ -8,7 +8,9 @@
 } */
 
 .DrawerContainer {
+    /* Positioning */
     position: absolute;
+    display: flex;
     padding: 30vh 2vw;
     background-color: #2C664A;
     border-radius: 0px 15px 15px 0px;
