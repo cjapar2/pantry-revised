@@ -43,7 +43,7 @@
     overflow-y: auto;
     box-sizing: border-box;
     scrollbar-width: none;
-    /* opacity: 0.5; */
+    opacity: 0.5;
 }
 
 .listContainer::-webkit-scrollbar {

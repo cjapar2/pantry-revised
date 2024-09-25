@@ -5,21 +5,21 @@
     display: flex;
     /* Using % prevents from drastically changing position when expanding resolution */
     top: 15%;
-    left: 115px;
+    left: 80px;
     /* Use vh to scale with resolution/size of screen EDIT: Nevermind, rem works better.*/
-    padding: 18rem 10rem;
+    padding: 18rem 168px 18rem 12rem;
     /* Not sure why I'm using width/height here? */
     /* width: 18rem;
     height: 20rem; */
     border-radius: 0px 15px 15px 0px;
     /* Transition animation when side panel slides out */
     transition: left 0.3s ease-in-out;
-    background-color: mediumturquoise;
+    /* background-color: mediumturquoise; */
 }
 
 /* When a button on the buttonGroup is clicked, move sidePanel to the right */
 .sidePanelContainer.open {
-    left: 435px;
+    left: 400px;
 }
 
 .buttonGroup {
@@ -28,20 +28,19 @@
     right: 0;
     padding: 2rem 0rem;
     border-radius: 0px 15px 15px 0px;
-    background-color: red;
+    background-color: #367c5a;
 }
 
 .contentContainer {
     position: absolute;
     top: 0;
-    right: 35px;
+    left: 0px;
     padding: 18rem 10rem;
     /* Ensure size of container is the same as the sidePanelContainer (parent) */
     width: 15rem;
     height: 18rem;
     background-color: #2C664A;
     border-radius: 0px 15px 15px 0px;
-    opacity: 0.5;
 }
 
 .filter-button {
@@ -65,13 +64,13 @@
 
 @media (max-width: 1800px) {
     .sidePanelContainer {
-        /* Use vh to scale with resolution/size of screen EDIT: Nevermind, rem works better.*/
-        padding: 14rem 10rem;
+        padding: 14rem 136px 14rem 10rem;
+        left: 64px;
     }
 
     /* When a button on the buttonGroup is clicked, move sidePanel to the right */
     .sidePanelContainer.open {
-        left: 355px;
+        left: 320px;
     }
 
     .contentContainer {
@@ -84,5 +83,10 @@
         height: 18rem;
         background-color: #2C664A;
         border-radius: 0px 15px 15px 0px; 
+    }
+
+    .close-button.MuiIconButton-root {
+        bottom: 14rem;
+        right: 8rem;
     }
 }

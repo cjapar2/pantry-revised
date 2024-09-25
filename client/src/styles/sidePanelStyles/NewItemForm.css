@@ -7,3 +7,10 @@
     border-radius: 0px 15px 15px 0px; 
     /* background-color: greenyellow; */
 }
+
+@media (max-width: 1800px) {
+    .itemFormContainer {
+        width: 14rem;
+        height: 10rem;
+    }
+}

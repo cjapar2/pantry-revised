@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react'
 import '../../styles/sidePanelStyles/NewItemForm.css'
-import { styled } from '@mui/material/styles';
+import { createTheme, styled } from '@mui/material/styles';
 import { Button, Grid, Box, TextField, IconButton, Avatar, Input, Select, MenuItem, Tooltip } from '@mui/material'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
@@ -9,6 +9,14 @@ import { parseISO } from 'date-fns';
 import { ItemsContext } from '../contexts/ItemsContext'
 import defaultItemIcon from '../../assets/default_item_image.png'
 import { ListsContext } from '../contexts/ListsContext';
+
+const theme = createTheme({
+  breakpoints: {
+    values: {
+      sm: 1800,
+    },
+  },
+})
 
 const CustomDatePickerStyle = {
   textField: {
