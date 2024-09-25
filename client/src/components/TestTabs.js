@@ -25,10 +25,9 @@ export function TestTabs() {
                 marginRight: '8px',
                 fontFamily: 'McLaren',
                 textTransform: 'none',
-                width: '20px',
             }
             }}>
-              <Tab label='List 1'>List 1</Tab>
+              <Tab label='List 1afeaefawfwafawfawe'>List 1</Tab>
               <Tab label='List 2'>List 2</Tab>
               <Tab label='List 3'>List 3</Tab>
             </Tabs>

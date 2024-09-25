@@ -6,9 +6,9 @@
             line-clamp: 3; */
     display: flex;
     margin: 0rem -24rem;
+    margin-bottom: 1rem;
     padding: 3rem;
     border-radius: 15px;
-    margin-bottom: 1rem;
     background: #FFF3CA;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     /* overflow: hidden; */
@@ -120,4 +120,51 @@
     border-radius: 0.3rem;
     color: #b8c4ac;
     opacity: 1;
+}
+
+@media (max-width: 1800px) {
+    .itemContainer {
+        margin: 0rem -14rem 0rem -24rem;
+        margin-bottom: 1rem;
+        padding: 2.6rem;
+    /* padding: 40vh 25rem 40vh 25rem; */
+    }
+
+    .imageContainer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* background-color: blue; */
+        padding: 2.6rem;
+        border-radius: 15px 0px 0px 15px;
+        overflow: hidden;
+    }
+
+    .name {
+        /* Restrict name to one line */
+        white-space: nowrap;
+        /* Hide text after width is 10rem */
+        max-width: 7rem;
+        /* Hide overflow with ellipsis */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /* Positioning */
+        top: 0.8rem;
+        left: 6rem;
+        /* Font size */
+        font-size: 1.3rem;
+    }
+    
+    .date {
+        top: 2.5rem;
+        left: 7rem;
+        font-size: 0.8rem;
+    }
+    
+    .amount {
+        color: black;
+        font-size: 1rem;
+        top: 1.3rem;
+        left: 20rem;
+    }
 }

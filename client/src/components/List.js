@@ -41,14 +41,14 @@ export function List({ list, listId}) {
   const activeListItems = lists[activeListIndex]?.items || [];
 
   return (
-    <div className='ListDashboard'>
+    <div className='listDashboard'>
     <TestTabs />
     {/* Render SidePanel behind ListContainer */}
     <SidePanel />
-      <div className="ListContainer" style={{backgroundColor: '#E4EBB1'}}>
-        <h1 className="ListTitle">{lists[activeListIndex]?.name || 'No List Detected?'}</h1>
+      <div className="listContainer" style={{backgroundColor: '#E4EBB1'}}>
+        <h1 className="listTitle">{lists[activeListIndex]?.name || 'No List Detected?'}</h1>
         {/* Button that opens AddItemForm and add items */}
-        <FontAwesomeIcon icon={faSquarePlus} size="2xl" className="OpenAddFormBtn"
+        <FontAwesomeIcon icon={faSquarePlus} size="2xl" className="openAddFormBtn"
           onClick={() => handleOpenAddForm()}
         />
         {/* Modal component that shows form to add items depending on button press */}
@@ -60,9 +60,9 @@ export function List({ list, listId}) {
         />
         
         {/* Container that contains labels */}
-        <div className='labelsContainer'>
+        {/* <div className='labelsContainer'> */}
           {/* Buttons for sorting list */}
-          <Button className='nameLabel'
+          {/* <Button className='nameLabel'
             variant="contained" color="primary"
             onClick={handleNameSort}
             endIcon={
@@ -77,7 +77,7 @@ export function List({ list, listId}) {
           >
             Amount
           </Button>
-        </div>
+        </div> */}
         
         {/* Container that contains item listings */}
         <div className='listingsContainer'>

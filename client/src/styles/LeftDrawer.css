@@ -7,11 +7,11 @@
     padding: 0rem 2rem;
 } */
 
-.DrawerContainer {
+.drawerContainer {
     /* Positioning */
     position: absolute;
     display: flex;
-    padding: 25vh 1vw;
+    padding: 2vh 0;
     background-color: #2C664A;
     border-radius: 0px 15px 15px 0px;
     left: 0rem; /* Stick to the left edge */

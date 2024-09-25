@@ -5,8 +5,8 @@ import '../styles/TopBar.css'
 export function TopBar() {
   return (
     <div>
-        <AppBar className='AppBar'>
-            <Toolbar className='ToolBar'>Pantry</Toolbar>
+        <AppBar className='appBar'>
+            <Toolbar className='toolBar'>Pantry</Toolbar>
         </AppBar>
     </div>
   )

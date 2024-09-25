@@ -12,7 +12,7 @@
     box-sizing: border-box;
 }
 
-.ListDashboard {
+.listDashboard {
     position: absolute;
     /* Styles to keep listContainer centered */
     display: flex;
@@ -30,11 +30,11 @@
     position: absolute;
 } */
 
-.ListContainer {
+.listContainer {
     position: absolute;
     /* background-color: #E4EBB1; */
     /* min-width: 25rem; */
-    padding: 40vh 25rem 40vh 25rem;
+    padding: 40vh 25rem;
     /* Ensure List stays in middle of screen */
     /* top: 5%; */
     /* transform: translateY(-70%); */
@@ -46,11 +46,11 @@
     /* opacity: 0.5; */
 }
 
-.ListContainer::-webkit-scrollbar {
+.listContainer::-webkit-scrollbar {
     display: none;
 }
 
-.ListTitle {
+.listTitle {
     font-family: "McLaren";
     position: absolute;
     font-size: 2rem;
@@ -59,7 +59,7 @@
     left: 2rem;
 }
 
-.OpenAddFormBtn {
+.openAddFormBtn {
     position: absolute;
     cursor: pointer;
     top: 2rem;
@@ -115,15 +115,30 @@
     top: 10rem;
 }   
 
-@media (max-width: 1800px) {
-    .ListContainer {
-    background-color: cyan;
-    /* padding: 40vh 25rem 40vh 25rem; */
-    }
-}
-
 .tabContainer {
     position: absolute;
     left: 0rem;
     top: 1rem;
 }
+
+@media (max-width: 1800px) {
+    .listContainer {
+        background-color: cyan;
+        padding: 40vh 20rem;
+        /* padding: 40vh 25rem 40vh 25rem; */
+    }
+
+    .listTitle {
+        font-size: 1.6rem;
+        font-weight: 1rem;
+        top: 0rem;
+        left: 2rem;
+    }
+
+    .listingsContainer {
+        position: absolute;
+        left: 25rem;
+        top: 10rem;
+    }   
+}
+

@@ -28,7 +28,7 @@
     right: 0;
     padding: 2rem 0rem;
     border-radius: 0px 15px 15px 0px;
-    background-color: #367c5a;
+    background-color: red;
 }
 
 .contentContainer {
@@ -40,7 +40,8 @@
     width: 15rem;
     height: 18rem;
     background-color: #2C664A;
-    border-radius: 0px 15px 15px 0px; 
+    border-radius: 0px 15px 15px 0px;
+    opacity: 0.5;
 }
 
 .filter-button {
@@ -59,4 +60,29 @@
     color: #b8c4ac;
     bottom: 18rem;
     right: 10rem;
+}
+
+
+@media (max-width: 1800px) {
+    .sidePanelContainer {
+        /* Use vh to scale with resolution/size of screen EDIT: Nevermind, rem works better.*/
+        padding: 14rem 10rem;
+    }
+
+    /* When a button on the buttonGroup is clicked, move sidePanel to the right */
+    .sidePanelContainer.open {
+        left: 355px;
+    }
+
+    .contentContainer {
+        position: absolute;
+        top: 0;
+        left: 0px;
+        padding: 14rem 8rem;
+        /* Ensure size of container is the same as the sidePanelContainer (parent) */
+        width: 15rem;
+        height: 18rem;
+        background-color: #2C664A;
+        border-radius: 0px 15px 15px 0px; 
+    }
 }
