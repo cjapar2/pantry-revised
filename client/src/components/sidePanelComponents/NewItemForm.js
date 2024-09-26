@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import '../../styles/sidePanelStyles/NewItemForm.css'
 import { createTheme, styled } from '@mui/material/styles';
-import { Button, Grid, Box, TextField, IconButton, Avatar, Input, Select, MenuItem, Tooltip } from '@mui/material'
+import { Button, Grid, Box, TextField, IconButton, Avatar, Input, Select, MenuItem, Tooltip, useMediaQuery } from '@mui/material'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers';
@@ -10,13 +10,14 @@ import { ItemsContext } from '../contexts/ItemsContext'
 import defaultItemIcon from '../../assets/default_item_image.png'
 import { ListsContext } from '../contexts/ListsContext';
 
-const theme = createTheme({
+const textFieldTheme = createTheme({
   breakpoints: {
     values: {
-      sm: 1800,
+      sm: 1801,
     },
   },
 })
+
 
 const CustomDatePickerStyle = {
   textField: {
@@ -25,7 +26,6 @@ const CustomDatePickerStyle = {
       width: '100%', // using width here because 'xs={12}' prop doesn't take upp the entire row
       backgroundColor: '#568A80',
   '& .MuiOutlinedInput-root': {
-    height: '50px',
     color: 'white', // Text color
     '& fieldset': {
       borderColor: 'white', // Border color
@@ -52,6 +52,12 @@ const CustomDatePickerStyle = {
 
 // Custom style for MUI Textfields to override their MUI styles
 const CustomTextField = styled(TextField)({
+  [textFieldTheme.breakpoints.down('sm')]: {
+    '& .MuiInputBase-input': {
+    padding: '2px 10px', // Adjust padding
+  },
+  },
+  
   '& .MuiOutlinedInput-root': {
     backgroundColor: '#568A80',
     '& fieldset': {
@@ -76,6 +82,8 @@ const CustomTextField = styled(TextField)({
 });
 
 export function NewItemForm({item}) {
+
+    const isScreenSmall = useMediaQuery('(max-width: 1800px)');
 
     const { addItem, updateItem } = useContext(ItemsContext);
     const { lists, activeListIndex } = useContext(ListsContext);
@@ -140,17 +148,21 @@ export function NewItemForm({item}) {
 
   return (
     <Box component='form' className='itemFormContainer' onSubmit={handleItemSubmit}>
-      <Grid container spacing={2} className='itemFormGrid' justifyContent="center" alignItems="center">
+      <Grid container rowSpacing={isScreenSmall ? 1.5 : 2} columnSpacing={isScreenSmall ? 1 : 2} className='itemFormGrid' justifyContent="center" alignItems="center">
         {/* Image Picker */}
-        <Grid item xs={0}>
+        <Grid item>
           <Tooltip placement='top' title='Upload Image'>
             <IconButton>
               <Avatar
                 src={defaultItemIcon}
                 style={{
-                  width: '80px',
-                  height: '80px',
+                  // width: '80px',
+                  // height: '80px',
                   borderRadius: '15px',
+                  '@media (max-width: 1800px)': {
+                    width: '80px',
+                    height: '80px',
+                  },
                 }}></Avatar>
               </IconButton>
             </Tooltip>

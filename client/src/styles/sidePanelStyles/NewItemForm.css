@@ -8,6 +8,10 @@
     /* background-color: greenyellow; */
 }
 
+.itemFormGrid {
+    /* background-color: cyan; */
+}
+
 @media (max-width: 1800px) {
     .itemFormContainer {
         width: 14rem;
