@@ -155,13 +155,14 @@ export function NewItemForm({item}) {
             <IconButton>
               <Avatar
                 src={defaultItemIcon}
-                style={{
-                  // width: '80px',
-                  // height: '80px',
+                sx={{
+                  width: '80px',
+                  height: '80px',
                   borderRadius: '15px',
                   '@media (max-width: 1800px)': {
-                    width: '80px',
-                    height: '80px',
+                    width: '60px',
+                    height: '60px',
+                    marginBottom: '-10px',
                   },
                 }}></Avatar>
               </IconButton>
