@@ -16,6 +16,10 @@
     left: 0;
 }
 
+.MuiTabs-root {
+    min-height: 1px;
+}
+
 @media (max-width: 1800px) {
     .testTabContainer {
     padding: 40vh 20rem;

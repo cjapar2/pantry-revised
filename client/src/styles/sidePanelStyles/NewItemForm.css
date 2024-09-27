@@ -2,7 +2,7 @@
     position: absolute;
     width: 18rem;
     height: 34rem;
-    top: 0.4rem;
+    top: 1rem;
     left: 1rem;
     border-radius: 0px 15px 15px 0px; 
     /* background-color: greenyellow; */
@@ -14,7 +14,8 @@
 
 @media (max-width: 1800px) {
     .itemFormContainer {
+        top: 0.5rem;
         width: 14rem;
-        height: 10rem;
+        height: 27rem;
     }
 }

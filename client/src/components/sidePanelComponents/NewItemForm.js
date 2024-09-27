@@ -222,7 +222,7 @@ export function NewItemForm({item}) {
             label="Comments"
             value={comments}
             multiline // Multiline and rows={5} lets textfield take a bigger space
-            rows={5}
+            rows={isScreenSmall ? 4 : 5}
             fullWidth
             onChange={(e) => setComments(e.target.value)}
           />

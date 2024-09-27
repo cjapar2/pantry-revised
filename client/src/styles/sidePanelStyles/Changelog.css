@@ -7,3 +7,11 @@
     border-radius: 0px 15px 15px 0px;
     background-color: aquamarine;
 }
+
+@media (max-width: 1800px) {
+    .changelogContent {
+        top: 0.5rem;
+        width: 14rem;
+        height: 27rem;
+    }
+}
