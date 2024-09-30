@@ -6,14 +6,16 @@
 .testTabContainer {
     position: absolute;
     display: flex;
-    /* background-color: blueviolet; */
-    padding: 40vh 25em;
+    background-color: blueviolet;
+    padding: 40vh 25rem;
 }
 
 .testTabs {
     position: absolute;
-    top: -3rem;
-    left: 0;
+    top: -40px;
+    left: -2.5rem;
+    max-width: 55rem;
+    background-color: blueviolet;
 }
 
 .MuiTabs-root {
@@ -21,8 +23,11 @@
 }
 
 @media (max-width: 1800px) {
+      .testTabs {
+        max-width: 45rem;
+      }
+
     .testTabContainer {
-    padding: 40vh 20rem;
-    /* padding: 40vh 25rem 40vh 25rem; */
+        padding: 40vh 20rem;
     }
 }
